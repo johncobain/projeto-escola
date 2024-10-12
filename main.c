@@ -5,5 +5,5 @@ int main()
 {
     printf("Inicio do projeto escola\n");
 
-    return 0;s
+    return 0;
 }
