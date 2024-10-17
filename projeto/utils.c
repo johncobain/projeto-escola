@@ -37,6 +37,12 @@ void excluido(){
     resetC();
 }
 
+void atualizado(){
+    system ("cls");
+    sucess();
+    printf("Atualizado com Sucesso!");
+    resetC();
+}
 // ===== Validação ===================================================
 
 int bissexto(int ano){
