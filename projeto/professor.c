@@ -1,5 +1,6 @@
-
+/*
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 
@@ -26,13 +27,13 @@ int atualizarProfessor(Professor lista[], int qtdProfessor);
 
 int menuProfessor(){
   int opcao;
-  printLine('=',20);
+  printLine('-',30);
   printf("0. Voltar\n");
   printf("1. Cadastrar\n");
   printf("2. Listar\n");
   printf("3. Excluir\n");
   printf("4. Atualizar\n");
-  printLine('=',20);
+  printLine('-',30);
   scanf("%d", &opcao);
   return opcao;
   }
@@ -46,19 +47,19 @@ int mainProfessor(Professor listaProfessor[], int qtdProfessor) {
     switch(opcao){
       printf("\n");
       case 1:{
-        system ("clear");
+        system ("cls");
         qtdProfessor = cadastrarProfessor(listaProfessor, qtdProfessor);
         printf("\n");
         break;
       }
       case 2:{
-        system ("clear");
+        system ("cls");
         listarProfessor(listaProfessor, qtdProfessor);
         printf("\n");
         break;
       }
       case 3:{
-        system ("clear");
+        system ("cls");
         int retorno = excluirProfessor(listaProfessor, qtdProfessor);
         if (retorno != -1){
         qtdProfessor = retorno;
@@ -66,13 +67,13 @@ int mainProfessor(Professor listaProfessor[], int qtdProfessor) {
         break;
       }
       case 4:{
-        system ("clear");
+        system ("cls");
         int retorno = atualizarProfessor(listaProfessor, qtdProfessor);
         printf("\n");  
         break;
       }
       default:{
-       system ("clear");
+       system ("cls");
        printf("Opcao Invalida!!\n");
       }
     }
@@ -82,10 +83,10 @@ int mainProfessor(Professor listaProfessor[], int qtdProfessor) {
 }
   }
 int cadastrarProfessor(Professor lista[], int qtdProfessor){
-    system ("clear");
-  printLine('=',20);
+    system ("cls");
+  printLine('-',30);
   printf("Cadastrando Professor\n");
-  printLine('=',20); 
+  printLine('-',30); 
   lista[qtdProfessor].matricula = getProximaMatriculaProfessor();
   getchar();
   printf("\nDigite o nome: ");
@@ -113,8 +114,8 @@ int cadastrarProfessor(Professor lista[], int qtdProfessor){
 }
 
 void listarProfessor(Professor lista[], int qtdProfessor){
-    system ("clear");
-  printLine('=',20);
+    system ("cls");
+  printLine('-',30);
   printf("Lista de Professor....\tTamanho %d\n",qtdProfessor);
   for (int i = 0; i < qtdProfessor; i++){
     printf("\n");
@@ -123,14 +124,14 @@ void listarProfessor(Professor lista[], int qtdProfessor){
     printf("Sexo               \t\t\t\t %c\n",lista[i].sexo);
     printf("Data de Nascimento:\t\t\t\t %d/%d/%d\n",lista[i].dataNasc.dia,lista[i].dataNasc.mes,lista[i].dataNasc.ano);
     printf("Cpf                \t\t\t\t %s\n",lista[i].cpf);
-    printLine('=',20);
+    printLine('-',30);
   
     } 
       
 }
 
 int excluirProfessor(Professor lista[], int qtdProfessor){
-    system ("clear");
+    system ("cls");
 int matricula, achou = 0;
  
 printf("Digite a matricula do Professor a ser excluido:");
@@ -166,7 +167,7 @@ int i = 0;
     if (matricula == lista[i].matricula) {
       achou = 1;
     printf("\n");
-    printLine('=',20);
+    printLine('-',30);
     getchar();
     printf("\nDigite o nome: ");
     fgets(lista[i].nome,19,stdin);
@@ -188,7 +189,7 @@ int i = 0;
         if (lista[i].cpf[ln] == '\n')
           lista[i].cpf[ln] = '\0';
       
-    printLine('=',20);  
+    printLine('-',30);  
     break;
     }
   }
@@ -201,3 +202,5 @@ int i = 0;
     return -1;
   }
   }
+
+  */

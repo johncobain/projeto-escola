@@ -81,23 +81,4 @@ int calcularIdade(int dn, int mn, int an)
          }
          printf(qtdAno,"anos,",qtdMes,"meses e",qtdDias,"dia.\n");
     }
-
-
-int maindata(){
-    int d,m,a;
-    printf("Digite o dia de nascimento no formato dd\n");
-    scanf("%d",&d);
-    printf("Digite o mes de nascimento no formato mm\n");
-    scanf("%d",&m);
-    printf("Digite o ano de nascimento no formato aaaa\n");
-    scanf("%d",&a);
-    if (validarData(d,m,a)== 1){
-    //        calcularIdade(d,m,a);
-    printf("data valida!");
-    }
-    else
-        printf("Data Invalida!\n");
-    }
-
-
 */

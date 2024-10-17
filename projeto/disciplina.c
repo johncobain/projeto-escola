@@ -1,5 +1,6 @@
-
+/*
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "disciplina.h"
 #include "aluno.h"
@@ -27,13 +28,13 @@ int atualizarDisciplina(Disciplina lista[], int qtdDisciplina);
 
 int menuDisciplina(){
   int opcao;
-  printLine('=',20);
+  printLine('-',30);
   printf("0. Voltar\n");
   printf("1. Cadastrar\n");
   printf("2. Listar\n");
   printf("3. Excluir\n");
   printf("4. Atualizar\n");
-  printLine('=',20);
+  printLine('-',30);
   scanf("%d", &opcao);
   return opcao;
 }
@@ -47,19 +48,19 @@ int mainDisciplina(Disciplina listaDisciplina[], int qtdDisciplina) {
     switch(opcao){
       printf("\n");
       case 1:{
-        system ("clear");
+        system ("cls");
         qtdDisciplina = cadastrarDisciplina(listaDisciplina, qtdDisciplina);
         printf("\n");
         break;
       }
       case 2:{
-        system ("clear");
+        system ("cls");
         listarDisciplina(listaDisciplina, qtdDisciplina);
         printf("\n");
         break;
       }
       case 3:{
-        system ("clear");
+        system ("cls");
         int retorno = excluirDisciplina(listaDisciplina, qtdDisciplina);
          if (retorno != -1){
          qtdDisciplina = retorno;
@@ -79,10 +80,10 @@ int mainDisciplina(Disciplina listaDisciplina[], int qtdDisciplina) {
 }
 
 int cadastrarDisciplina(Disciplina lista[], int qtdDisciplina){
-    system ("clear");
-  printLine('=',20);
+    system ("cls");
+  printLine('-',30);
   printf("Cadastrando Disciplina\n");
-  printLine('=',20);
+  printLine('-',30);
  lista[qtdDisciplina].codigo = getProximaDisciplina();
   getchar();
   printf("\nDigite o nome da Disciplina: ");
@@ -99,8 +100,8 @@ int cadastrarDisciplina(Disciplina lista[], int qtdDisciplina){
 }
 
 void listarDisciplina(Disciplina lista[], int qtdDisciplina){
-    system ("clear");
-  printLine('=',20);
+    system ("cls");
+  printLine('-',30);
   printf("Lista de Disciplina....\n");
     for (int i = 0; i < qtdDisciplina; i++){
     printf("\n");
@@ -108,13 +109,13 @@ void listarDisciplina(Disciplina lista[], int qtdDisciplina){
     printf("Nome:      \t\t\t\t %s\n",lista[i].nome);
     printf("Semestre:  \t\t\t\t %d\n",lista[i].semestre);
     printf("Professor: \t\t\t\t %s\n",lista[i].professor);
-    printLine('=',20);
+    printLine('-',30);
   
     } 
     }
   
 int excluirDisciplina(Disciplina lista[], int qtdDisciplina){
-    system ("clear");
+    system ("cls");
 int codigo, achou = 0;
  
 printf("Digite o codigo da disciplina a ser excluido:");
@@ -150,7 +151,7 @@ int i = 0;
     if (codigo == lista[i].codigo) {
       achou = 1;
     printf("\n");
-    printLine('=',20);
+    printLine('-',30);
     getchar();
     printf("\nDigite o nome da Disciplina: ");
     fgets(lista[i].nome,19,stdin);
@@ -159,7 +160,7 @@ int i = 0;
       getchar();
     printf("\nDigite o nome do Professor: ");
     fgets(lista[i].nome,19,stdin);   
-    printLine('=',20);  
+    printLine('-',30);  
     break;
     }
   }
@@ -176,3 +177,4 @@ int i = 0;
 
 
 
+*/

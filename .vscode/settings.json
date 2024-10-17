@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "escola.h": "c",
+        "utils.h": "c"
+    }
+}
