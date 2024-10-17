@@ -1,6 +1,4 @@
 # To-Do List
-
-- create deleteAluno
 - create updateAluno
 ---
 ## tasks:
