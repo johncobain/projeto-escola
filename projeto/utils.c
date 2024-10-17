@@ -46,6 +46,20 @@ int validarData(int d, int m, int a){
         return 0;
     return 1;
 }
+
+int validarCpf(char cpf[]){
+    for(int i = 0; i<15; i++){
+        if(i<3||(i>3&&i<7)||(i>7&&i<11)||(i>11&&i<14)){//xxx.xxx.xxx-xx
+            if(!(cpf[i]>= '0'&&cpf[i]<='9')) return 0;
+        }else if(i==3||i==7){
+            if(cpf[i]!= '.') return 0;
+        }else if(i==11){
+            if(cpf[i]!= '-') return 0;
+        }else{
+            return 1;
+        }
+    }
+}
 /*
 int calcularIdade(int dn, int mn, int an)
     {

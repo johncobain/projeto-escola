@@ -53,6 +53,7 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 					case LISTA_CHEIA: printf("Lista de alunos Cheia\n"); break;
 					case ERRO_CADASTRO_SEXO: printf("Sexo invalido\n"); break;
 					case ERRO_DATA_INVALIDA: printf("Data invalida\n"); break;
+					case ERRO_CPF_INVALIDO: printf("Cpf invalido\n"); break;
 					case SUCESSO_CADASTRO: printf("Cadastrado com sucesso!\n"); qtdAluno++; break;
 				}
 				printf("\n");
@@ -131,7 +132,8 @@ int cadastrarAluno(Pessoa lista[], int qtdAluno){
 	printf("Digite o CPF(xxx.xxx.xxx-xx): ");
 	fgets(lista[qtdAluno].cpf, 15, stdin);
 	len = strlen(lista[qtdAluno].cpf) - 1;
-	if (lista[qtdAluno].cpf[len] == '\n') return ERRO_CPF_INVALIDO;
+	if(validarCpf(lista[qtdAluno].cpf)==0) return ERRO_CPF_INVALIDO;
+
 	lista[qtdAluno].matricula = gerarMatricula();
 	return SUCESSO_CADASTRO;
 }
@@ -150,7 +152,7 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 			printf("\n");
 			printf("Nome:              \t%s\n",lista[i].nome);
 			printf("Sexo:              \t%c\n",lista[i].sexo);
-			printf("Data de Nascimento:\t%d/%d/%d\n",lista[i].data_nascimento.dia,lista[i].data_nascimento.mes,lista[i].data_nascimento.ano);
+			printf("Data de Nascimento:\t%02d/%02d/%d\n",lista[i].data_nascimento.dia,lista[i].data_nascimento.mes,lista[i].data_nascimento.ano);
 			printf("Cpf:               \t%s\n",lista[i].cpf);
 			printf("Matricula:         \t%d\n",lista[i].matricula);
 			printLine('-',30);
