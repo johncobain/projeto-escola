@@ -13,9 +13,9 @@
 int cadastrarAluno(Pessoa lista[], int qtdAluno);
 void listarAlunos(Pessoa lista[], int qtdAluno);
 int excluirAluno(Pessoa lista[], int qtdAluno);
-// int atualizarAluno(Pessoa lista[], int qtdAluno);
+int atualizarAluno(Pessoa lista[], int qtdAluno);
 
-int gerarMatricula(){
+int gerarMatriculaA(){
 	static int matriculaAluno = 2024000;
 	matriculaAluno++;
 	return matriculaAluno;
@@ -154,7 +154,7 @@ int cadastrarAluno(Pessoa lista[], int qtdAluno){
 	if(validarCpf(lista[qtdAluno].cpf)==0) return ERRO_CPF_INVALIDO;
 
 	if(lista[qtdAluno].matricula<=2024000||lista[qtdAluno].matricula>2024000+TAM_ALUNO){
-		lista[qtdAluno].matricula = gerarMatricula();
+		lista[qtdAluno].matricula = gerarMatriculaA();
 	}
 	return SUCESSO_CADASTRO;
 }
@@ -164,20 +164,20 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 	char esc;
     system ("cls");
 	printf("\n");
-    printLine('-',30);
+    printLine('-',50);
 	if(qtdAluno==0){
 		printf("Lista vazia.\n");
-		printLine('-',30);
+		printLine('-',50);
 	}else{
-		printf("Lista de Alunos\n");
-    	printLine('-',30);
+		printf("Lista de Alunos    \t|Tamanho: %d\n",qtdAluno);
+    	printLine('-',50);
 		for (int i = 0; i < qtdAluno; i++){
-			printf("Nome:              \t%s\n",lista[i].nome);
-			printf("Sexo:              \t%c\n",lista[i].sexo);
-			printf("Data de Nascimento:\t%02d/%02d/%d\n",lista[i].data_nascimento.dia,lista[i].data_nascimento.mes,lista[i].data_nascimento.ano);
-			printf("Cpf:               \t%s\n",lista[i].cpf);
-			printf("Matricula:         \t%d\n",lista[i].matricula);
-			printLine('-',30);
+			printf("Nome:              \t|%s\n",lista[i].nome);
+			printf("Sexo:              \t|%c\n",lista[i].sexo);
+			printf("Data de Nascimento:\t|%02d/%02d/%d\n",lista[i].data_nascimento.dia,lista[i].data_nascimento.mes,lista[i].data_nascimento.ano);
+			printf("Cpf:               \t|%s\n",lista[i].cpf);
+			printf("Matricula:         \t|%d\n",lista[i].matricula);
+			printLine('-',50);
 		}     
 	}
 		printf("Pressione ENTER para voltar para o menu: ");

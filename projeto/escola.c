@@ -4,10 +4,9 @@
 #include "escola.h"
 #include "utils.h"
 #include "aluno.h"
-/*
 #include "professor.h"
-#include "disciplina.h"
-*/
+
+// #include "disciplina.h"
 
 int menuGeral(){
 	int opcao;
@@ -16,10 +15,10 @@ int menuGeral(){
 	printf("#### Sistema Escola ####\n");
 	printLine('-',30);
 	printf("Digite a opcao\n");
-	printf("0 - Sair\n");
-	printf("1 - Gerenciar Aluno\n");
-	printf("2 - Gerenciar Professor\n");
-	printf("3 - Gerenciar Disciplina\n");
+	printf("0. Sair\n");
+	printf("1. Gerenciar Aluno\n");
+	printf("2. Gerenciar Professor\n");
+	printf("3. Gerenciar Disciplina\n");
 	printLine('-',30);
 	scanf("%d", &opcao);
 	return opcao;
@@ -31,13 +30,11 @@ int main() {
 	Pessoa listaAluno[TAM_ALUNO];/*Criando a variável aluno que será do tipo struct Ficha_Aluno */
 	int qtdAluno = 0;// inicio da lista de alunos
 	
-	/*
-	Pessoa listaProfessor[TAM];
+	Pessoa listaProfessor[TAM_PROFESSOR];
 	int qtdProfessor = 0;
 
-	Disciplina disciplina;
-	int qtdDisciplina=0;
-	*/
+	// Disciplina disciplina;
+	// int qtdDisciplina=0;
 	
 	
 	while(1){
@@ -62,15 +59,12 @@ int main() {
 				qtdAluno = mainAluno(listaAluno, qtdAluno);
 				break;
 			}
-			/*case 2:{
+			case 2:{
 				system ("cls");
-				printf("\n");
-				printLine('-',30);
-				printf("Modulo Professor\n");
-				printLine('-',30);
 				qtdProfessor = mainProfessor(listaProfessor, qtdProfessor);
 				break;
 			}
+			/*
 			case 3:{
 				system ("cls");
 				printf("\n");
