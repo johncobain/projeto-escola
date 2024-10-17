@@ -1,18 +1,3 @@
-/**
-Projeto Escola: Sistema de controle de uma escola.
-
-Desenvolvimento em C
-
-Realizado no contexto da disciplina INF029 - Laboratório de Programação
-do curso de Análise e Desenvolvimento de Sistemas do Instituto Federal da Bahia, campus Salvador
-http://ads.ifba.edu.br
-
-Prof. Renato Novais
-
-@2020
-
-*/
-
 #include <stdio.h>
 
 #include "Escola.h"

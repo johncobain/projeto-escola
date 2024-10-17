@@ -36,7 +36,7 @@ int menuAluno(){
 }
 
 
-void mainAluno(Aluno** inicioListaAluno){
+void mainAluno(Aluno **inicioListaAluno){
 	int opcao, retorno;
 	int sair = 0;
 
