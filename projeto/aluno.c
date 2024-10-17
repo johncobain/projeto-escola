@@ -12,7 +12,7 @@
 
 int cadastrarAluno(Pessoa lista[], int qtdAluno);
 void listarAlunos(Pessoa lista[], int qtdAluno);
-// int excluirAluno(Pessoa lista[], int qtdAluno);
+int excluirAluno(Pessoa lista[], int qtdAluno);
 // int atualizarAluno(Pessoa lista[], int qtdAluno);
 
 int gerarMatricula(){
@@ -38,12 +38,11 @@ int menuAluno(){
 }
 
 int mainAluno(Pessoa listaAluno[], int qtdAluno) { 
-
  	while(1){
 		switch(menuAluno()){
 			case 0: {
 				system ("cls");
-				return 0;
+				return qtdAluno;
 				break;
 			}
 			case 1:{
@@ -71,24 +70,29 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				listarAlunos(listaAluno, qtdAluno);
 				break;
 			}
-			/*
 			case 3:{
 				system ("cls");
 				int retorno = excluirAluno(listaAluno, qtdAluno);
-				if (retorno != -1){
-					qtdAluno = retorno;
-				}  
-				break;
+				switch(retorno){
+					case ERRO_MATRICULA: 
+						system("cls");
+						error();printf("Matricula Invalida"); resetC(); break;
+					case NAO_ENCONTRADO: 
+						system("cls");
+						error();printf("Matricula Inexistente"); resetC(); break;
+					case SUCESSO_EXCLUSAO: excluido(); qtdAluno--; break;
+				}
+				break; 
 			}
+			/*
 			case 4: {
-			int retorno = atualizarAluno(listaAluno, qtdAluno);
-
+				system ("cls");
+				int retorno = atualizarAluno(listaAluno, qtdAluno);
 				break;
 			}
 			*/
 			default:invalido();}
   	}
-    return qtdAluno;
 }
 
 int cadastrarAluno(Pessoa lista[], int qtdAluno){
@@ -149,8 +153,8 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 		printLine('-',30);
 	}else{
 		printf("Lista de Alunos\n");
+    	printLine('-',30);
 		for (int i = 0; i < qtdAluno; i++){
-			printf("\n");
 			printf("Nome:              \t%s\n",lista[i].nome);
 			printf("Sexo:              \t%c\n",lista[i].sexo);
 			printf("Data de Nascimento:\t%02d/%02d/%d\n",lista[i].data_nascimento.dia,lista[i].data_nascimento.mes,lista[i].data_nascimento.ano);
@@ -165,35 +169,28 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 		system("cls");
 }
 
-/*
+
 int excluirAluno(Pessoa lista[], int qtdAluno){
     system ("cls");
-int matricula, achou = 0;
+	int matricula, achou = 0;
  
-printf("Digite a matricula do aluno a ser excluido:");
-  scanf("%d",&matricula);
+	printf("Digite a matricula do aluno a ser excluido:");
+  	scanf("%d",&matricula);
+	if(matricula<0) return ERRO_MATRICULA;
   
-for (int i = 0; i < qtdAluno; i++){
-if (matricula == lista[i].matricula){
-    achou = 1;
-  
-          for (int j =i; j<qtdAluno - 1; j++){
-              lista[j]=lista[j+1];
-  }   
-      qtdAluno--;  
-        break;
-  }
-     
-  }
-  if (achou == 1) {
-    printf("Aluno excluido com sucesso\n");
-    return qtdAluno;
-  } else {
-    printf("Aluno não encontrado\n");
-    return -1;
-  }
-     }
-
+	for (int i = 0; i < qtdAluno; i++){
+		if (matricula == lista[i].matricula){
+			for (int j=i; j<qtdAluno-1; j++){
+				lista[j]=lista[j+1];
+			}   
+			achou = 1; 
+			break;
+		}	
+  	}
+	if (achou) return SUCESSO_EXCLUSAO;
+	return NAO_ENCONTRADO;
+}
+/*
 int atualizarAluno(Pessoa lista[], int qtdAluno) {
   int matricula, achou = 0;
   printf("Digite a matrícula do aluno a ser atualizado: ");

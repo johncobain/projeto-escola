@@ -30,6 +30,13 @@ void cadastrado(){
     resetC();
 }
 
+void excluido(){
+    system ("cls");
+    sucess();
+    printf("Excluido com Sucesso!");
+    resetC();
+}
+
 // ===== Validação ===================================================
 
 int bissexto(int ano){

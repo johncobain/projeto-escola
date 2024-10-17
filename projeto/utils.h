@@ -12,3 +12,4 @@ void resetC();
 
 void invalido();
 void cadastrado();
+void excluido();
