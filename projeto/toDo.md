@@ -1,6 +1,5 @@
 # To-Do List
 
-- add is_professor to struct (bool)
 - create deleteAluno
 - create updateAluno
 
