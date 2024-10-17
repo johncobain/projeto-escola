@@ -2,9 +2,6 @@
 
 - create deleteAluno
 - create updateAluno
-
-
-
 ---
 ## tasks:
 ### Cadastro: Criar, Ler, Atualizar, Excluir
