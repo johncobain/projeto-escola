@@ -50,19 +50,25 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				system ("cls");
 				int retorno = cadastrarAluno(listaAluno, qtdAluno);
 				switch(retorno){
-					case LISTA_CHEIA: printf("Lista de alunos Cheia\n"); break;
-					case ERRO_CADASTRO_SEXO: printf("Sexo invalido\n"); break;
-					case ERRO_DATA_INVALIDA: printf("Data invalida\n"); break;
-					case ERRO_CPF_INVALIDO: printf("Cpf invalido\n"); break;
-					case SUCESSO_CADASTRO: printf("Cadastrado com sucesso!\n"); qtdAluno++; break;
+					case LISTA_CHEIA: 
+						system("cls");
+						error();printf("Lista de alunos Cheia"); resetC(); break;
+					case ERRO_CADASTRO_SEXO: 
+						system("cls");
+						error();printf("Sexo invalido"); resetC(); break;
+					case ERRO_DATA_INVALIDA: 
+						system("cls");
+						error();printf("Data invalida"); resetC(); break;
+					case ERRO_CPF_INVALIDO: 
+						system("cls");
+						error();printf("Cpf invalido"); resetC(); break;
+					case SUCESSO_CADASTRO: cadastrado(); qtdAluno++; break;
 				}
-				printf("\n");
 				break;
 			}
 			case 2:{
 				system ("cls");
 				listarAlunos(listaAluno, qtdAluno);
-				printf("\n");
 				break;
 			}
 			/*
@@ -71,8 +77,7 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				int retorno = excluirAluno(listaAluno, qtdAluno);
 				if (retorno != -1){
 					qtdAluno = retorno;
-				}
-				printf("\n");  
+				}  
 				break;
 			}
 			case 4: {
@@ -81,12 +86,7 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				break;
 			}
 			*/
-			default:
-				system ("cls");
-				printf("\n");
-				printf("Opcao Invalida!!\n");
-				printLine('-',30);
-    	}
+			default:invalido();}
   	}
     return qtdAluno;
 }
@@ -142,12 +142,13 @@ int cadastrarAluno(Pessoa lista[], int qtdAluno){
 void listarAlunos(Pessoa lista[], int qtdAluno){
 	char esc;
     system ("cls");
+	printf("\n");
     printLine('-',30);
 	if(qtdAluno==0){
 		printf("Lista vazia.\n");
 		printLine('-',30);
 	}else{
-		printf("Lista de aluno\n");
+		printf("Lista de Alunos\n");
 		for (int i = 0; i < qtdAluno; i++){
 			printf("\n");
 			printf("Nome:              \t%s\n",lista[i].nome);
@@ -158,7 +159,7 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 			printLine('-',30);
 		}     
 	}
-		printf("Pressione qualquer tecla para voltar para o menu: ");
+		printf("Pressione ENTER para voltar para o menu: ");
 		getchar();
 		scanf("%c", &esc);
 		system("cls");

@@ -1,5 +1,8 @@
+#include <stdlib.h>
+
 #include "utils.h"
 
+// ===== Visual ===================================================
 
 void printLine(char s, int tam){
   int i;
@@ -8,7 +11,26 @@ void printLine(char s, int tam){
   }
   printf("\n");
 }
+void error(){printf("\033[1;101m");}
+void warning(){printf("\033[1;103m");}
+void sucess(){printf("\033[1;102m");}
+void resetC(){printf("\033[0m");}
 
+void invalido(){
+    system ("cls");
+    error();
+    printf("Opcao Invalida!");
+    resetC();
+}
+
+void cadastrado(){
+    system ("cls");
+    sucess();
+    printf("Cadastrado com Sucesso!");
+    resetC();
+}
+
+// ===== Validação ===================================================
 
 int bissexto(int ano){
 
@@ -60,6 +82,8 @@ int validarCpf(char cpf[]){
         }
     }
 }
+
+
 /*
 int calcularIdade(int dn, int mn, int an)
     {
@@ -96,3 +120,4 @@ int calcularIdade(int dn, int mn, int an)
          printf(qtdAno,"anos,",qtdMes,"meses e",qtdDias,"dia.\n");
     }
 */
+
