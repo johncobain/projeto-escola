@@ -7,12 +7,5 @@ int bissexto( int ano);
 int validarData(int d, int m, int a);
 int validarCpf(char cpf[]);
 
-void error();
-void warning();
-void sucess();
-void resetC();
-
-void invalido();
-void cadastrado();
-void excluido();
-void atualizado();
+void error(char *str);
+void sucess(char *str);

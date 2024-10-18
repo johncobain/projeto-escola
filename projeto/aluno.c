@@ -51,17 +51,17 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				switch(retorno){
 					case LISTA_CHEIA: 
 						system("cls");
-						error();printf("Lista de alunos Cheia"); resetC(); break;
+						error("Lista de alunos Cheia"); break;
 					case ERRO_CADASTRO_SEXO: 
 						system("cls");
-						error();printf("Sexo invalido"); resetC(); break;
+						error("Sexo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
 						system("cls");
-						error();printf("Data invalida"); resetC(); break;
+						error("Data invalida"); break;
 					case ERRO_CPF_INVALIDO: 
 						system("cls");
-						error();printf("Cpf invalido"); resetC(); break;
-					case SUCESSO_CADASTRO: cadastrado(); qtdAluno++; break;
+						error("Cpf invalido"); break;
+					case SUCESSO_CADASTRO: sucess("Aluno cadastrado com sucesso!"); qtdAluno++; break;
 				}
 				break;
 			}
@@ -76,11 +76,11 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				switch(retorno){
 					case ERRO_MATRICULA: 
 						system("cls");
-						error();printf("Matricula Invalida"); resetC(); break;
+						error("Matricula Invalida"); break;
 					case NAO_ENCONTRADO: 
 						system("cls");
-						error();printf("Matricula Inexistente"); resetC(); break;
-					case SUCESSO_EXCLUSAO: excluido(); qtdAluno--; break;
+						error("Matricula Inexistente"); break;
+					case SUCESSO_EXCLUSAO: sucess("Aluno excluido com sucesso"); qtdAluno--; break;
 				}
 				break; 
 			}
@@ -90,21 +90,21 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				switch(retorno){
 					case ERRO_CADASTRO_SEXO: 
 						system("cls");
-						error();printf("Sexo invalido"); resetC(); break;
+						error("Sexo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
 						system("cls");
-						error();printf("Data invalida"); resetC(); break;
+						error("Data invalida"); break;
 					case ERRO_CPF_INVALIDO: 
 						system("cls");
-						error();printf("Cpf invalido"); resetC(); break;
+						error("Cpf invalido"); break;
 					case NAO_ENCONTRADO: 
 						system("cls");
-						error();printf("Matricula Inexistente"); resetC(); break;
-					case SUCESSO_CADASTRO: atualizado();break;
+						error("Matricula Inexistente"); break;
+					case SUCESSO_CADASTRO: sucess("Aluno atualizado com sucesso!");break;
 				}
 				break;
 			}
-			default:invalido();}
+			default:error("Opcao invalida");}
   	}
 }
 

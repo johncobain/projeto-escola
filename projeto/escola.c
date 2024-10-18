@@ -74,7 +74,7 @@ int main() {
 				qtdDisciplina = mainDisciplina(listaDisciplina, qtdDisciplina);
 				break;
 			}*/
-			default:{invalido();}    
+			default:{error("Opcao invalida");}    
 		}
 
 	}	

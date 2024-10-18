@@ -11,38 +11,9 @@ void printLine(char s, int tam){
   }
   printf("\n");
 }
-void error(){printf("\033[1;101m");}
-void warning(){printf("\033[1;103m");}
-void sucess(){printf("\033[1;102m");}
-void resetC(){printf("\033[0m");}
+void error(char *str){system("cls"); printf("\033[1;101m %s \033[0m", str);}
+void sucess(char *str){system("cls"); printf("\033[1;102m %s \033[0m", str);}
 
-void invalido(){
-    system ("cls");
-    error();
-    printf("Opcao Invalida!");
-    resetC();
-}
-
-void cadastrado(){
-    system ("cls");
-    sucess();
-    printf("Cadastrado com Sucesso!");
-    resetC();
-}
-
-void excluido(){
-    system ("cls");
-    sucess();
-    printf("Excluido com Sucesso!");
-    resetC();
-}
-
-void atualizado(){
-    system ("cls");
-    sucess();
-    printf("Atualizado com Sucesso!");
-    resetC();
-}
 // ===== Validação ===================================================
 
 int bissexto(int ano){
@@ -82,7 +53,7 @@ int validarData(int d, int m, int a){
     return 1;
 }
 
-int validarNumerosVerificadores(char cpf[TAM_CPF], int posicaoVerificador){
+int validarVerificadores(char cpf[TAM_CPF], int posicaoVerificador){
     int i, j;
     int digito = posicaoVerificador + 8;
     int pesosDigitos[10] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
@@ -116,8 +87,8 @@ int validarCpf(char cpf[TAM_CPF]){
     }
     if(numerosIguais == TAM_CPF - 1)return  0;
 
-    if(validarNumerosVerificadores(cpf, 1)){
-        return validarNumerosVerificadores(cpf, 2);
+    if(validarVerificadores(cpf, 1)){
+        return validarVerificadores(cpf, 2);
     }
 
     return 0;

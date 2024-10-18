@@ -51,17 +51,17 @@ int mainProfessor(Pessoa listaProfessor[], int qtdProfessor) {
 				switch(retorno){
 					case LISTA_CHEIA: 
 						system("cls");
-						error();printf("Lista de professores Cheia"); resetC(); break;
+						error("Lista de professores Cheia"); break;
 					case ERRO_CADASTRO_SEXO: 
 						system("cls");
-						error();printf("Sexo invalido"); resetC(); break;
+						error("Sexo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
 						system("cls");
-						error();printf("Data invalida"); resetC(); break;
+						error("Data invalida"); break;
 					case ERRO_CPF_INVALIDO: 
 						system("cls");
-						error();printf("Cpf invalido"); resetC(); break;
-					case SUCESSO_CADASTRO: cadastrado(); qtdProfessor++; break;
+						error("Cpf invalido"); break;
+					case SUCESSO_CADASTRO: sucess("Professor cadastrado com sucesso!"); qtdProfessor++; break;
 				}
 				break;
 			}
@@ -76,11 +76,11 @@ int mainProfessor(Pessoa listaProfessor[], int qtdProfessor) {
 				switch(retorno){
 					case ERRO_MATRICULA: 
 						system("cls");
-						error();printf("Matricula Invalida"); resetC(); break;
+						error("Matricula Invalida"); break;
 					case NAO_ENCONTRADO: 
 						system("cls");
-						error();printf("Matricula Inexistente"); resetC(); break;
-					case SUCESSO_EXCLUSAO: excluido(); qtdProfessor--; break;
+						error("Matricula Inexistente"); break;
+					case SUCESSO_EXCLUSAO: sucess("Professor excluido com sucesso!"); qtdProfessor--; break;
 				}
 			break; 
 			}
@@ -90,21 +90,21 @@ int mainProfessor(Pessoa listaProfessor[], int qtdProfessor) {
 				switch(retorno){
 					case ERRO_CADASTRO_SEXO: 
 						system("cls");
-						error();printf("Sexo invalido"); resetC(); break;
+						error("Sexo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
 						system("cls");
-						error();printf("Data invalida"); resetC(); break;
+						error("Data invalida"); break;
 					case ERRO_CPF_INVALIDO: 
 						system("cls");
-						error();printf("Cpf invalido"); resetC(); break;
+						error("Cpf invalido"); break;
 					case NAO_ENCONTRADO: 
 						system("cls");
-						error();printf("Matricula Inexistente"); resetC(); break;
-					case SUCESSO_CADASTRO: atualizado();break;
+						error("Matricula Inexistente"); break;
+					case SUCESSO_CADASTRO: sucess("Professor atualizado com sucesso!");break;
 				}
 				break;
 			}
-			default:invalido();}	
+			default:error("Opcao invalida");}	
 	}
 }
 
