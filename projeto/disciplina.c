@@ -15,7 +15,7 @@ int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisc
 void listarDisciplina(Disciplina lista[], int qtdDisciplina);
 // void inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina);
 int excluirDisciplina(Disciplina lista[], int qtdDisciplina);
-// int atualizarDisciplina(Disciplina lista[], int qtdDisciplina);
+int atualizarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisciplina);
 
 
 int menuDisciplina(){
@@ -88,12 +88,26 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], int qt
 					case SUCESSO_EXCLUSAO: sucess("Disciplina excluida com sucesso!"); qtdDisciplina--; break;
 				}
 				break; 
-			}/*
+			}
 			case 5: {
-			int retorno = atualizarDisciplina(listaDisciplina, qtdDisciplina);
-
+			int retorno = atualizarDisciplina(listaDisciplina, listaProfessor, qtdDisciplina);
+			switch(retorno){
+					case ERRO_MATRICULA: 
+						system("cls");
+						error("Codigo invalido"); break;
+					case ERRO_DATA_INVALIDA: 
+						system("cls");
+						error("Semestre invalido"); break;
+					case NAO_ENCONTRADO: 
+						system("cls");
+						error("Professor nao encontrado"); break;
+					case NUM_INVALIDO: 
+						system("cls");
+						error("Numero de vagas invalido"); break;
+					case SUCESSO_CADASTRO: sucess("Disciplina atualizado com sucesso!"); break;
+				}
 				break;
-			}*/
+			}
 			default:error("Opcao invalida");
 		}
 	}
@@ -105,8 +119,7 @@ int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisc
 	printf("Cadastrando Disciplina\n");
 	printLine('-',30);
     if(qtdDisciplina >= TAM_DISC) return LISTA_CHEIA;
-
-	getchar();
+	fflush(stdin);
 	printf("\nDigite o nome da Disciplina: ");
 	fgets(lista[qtdDisciplina].nome,49,stdin);
 	fflush(stdin);
@@ -199,36 +212,23 @@ int excluirDisciplina(Disciplina lista[], int qtdDisciplina){
   	if (achou) return SUCESSO_EXCLUSAO;
 	return NAO_ENCONTRADO;
 }
-/*
-int atualizarDisciplina(Disciplina lista[], int qtdDisciplina) {
-  int codigo, achou = 0;
-  printf("Digite o codigo da Disciplina a ser atualizada: ");
-  scanf("%d", &codigo);
-int i = 0;
-  for (int i=0; i < qtdDisciplina; i++) {
-    if (codigo == lista[i].codigo) {
-      achou = 1;
-    printf("\n");
-    printLine('-',30);
-    getchar();
-    printf("\nDigite o nome da Disciplina: ");
-    fgets(lista[i].nome,19,stdin);
-    printf("\nDigite o Semestre: ");
-    scanf("%d", &lista[qtdDisciplina].semestre);
-      getchar();
-    printf("\nDigite o nome do Professor: ");
-    fgets(lista[i].nome,19,stdin);   
-    printLine('-',30);  
-    break;
-    }
-  }
 
-  if (achou == 1) {
-    printf("Disciplina atualizada com sucesso\n");
-    return i;
-  } else {
-    printf("Disciplina não encontrada\n");
-    return -1;
-  }
+int atualizarDisciplina(Disciplina lista[],Pessoa listaProfessor[], int qtdDisciplina) {
+  	system ("cls");
+	char codigo[7];
+	fflush(stdin);
+	printf("Digite o codigo da Disciplina a ser atualizada: ");
+  	fgets(codigo, 7, stdin);
+	fflush(stdin);
+
+	int len = strlen(codigo) - 1;
+	if (codigo[len] == '\n') codigo[len] = '\0';
+	if(validarCodigo(codigo)==0) return ERRO_MATRICULA;
+	fflush(stdin);
+	for (int i = 0; i < qtdDisciplina; i++){
+		if (strcmp(codigo, lista[i].codigo)==0){
+      		return cadastrarDisciplina(lista, listaProfessor, i);
+  		}
+  	}
+	return NAO_ENCONTRADO;
 }
-*/ 
