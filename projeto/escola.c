@@ -51,6 +51,7 @@ int main() {
 				scanf("%c", &esc);
 				system("cls");
 	        	//qtdAluno = finalizarEscola(listaAluno, qtdAluno);
+	        	//qtdProfessor = finalizarEscola(listaProfessor, qtdProfessor);
 				return 0;
 				break;
 			}		
@@ -80,6 +81,3 @@ int main() {
 	}	
 	return 0;
 }
-
-
-

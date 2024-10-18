@@ -1,5 +1,4 @@
 #include <stdlib.h>
-
 #include "utils.h"
 
 // ===== Visual ===================================================
@@ -11,17 +10,14 @@ void printLine(char s, int tam){
   }
   printf("\n");
 }
-void error(char *str){system("cls"); printf("\033[1;101m %s \033[0m", str);}
-void sucess(char *str){system("cls"); printf("\033[1;102m %s \033[0m", str);}
+void error(char *str){system("cls"); printf("\033[1;101m%s\033[0m", str);}
+void sucess(char *str){system("cls"); printf("\033[1;102m%s\033[0m", str);}
 
 // ===== Validação ===================================================
 
 int bissexto(int ano){
-
-    if (ano%4 == 0 && ano%100 != 0 || ano%400 == 0)
-        return 1;
-    else
-        return 0;
+    if (ano%4 == 0 && ano%100 != 0 || ano%400 == 0)return 1;
+    else return 0;
 }
 
 int diasNoMes(int m, int a){
@@ -61,14 +57,14 @@ int validarVerificadores(char cpf[TAM_CPF], int posicaoVerificador){
     int resto;
 
     for(i = 0, j = digito - 1; i < digito; i++, j--){
-        verificador += (cpf[i] - '0') * pesosDigitos[j];
+        verificador += (cpf[i] + ASCII2NUM) * pesosDigitos[j];
     }
 
     resto = verificador % 11;
     if(resto>=2) verificador = 11-resto;
     else verificador = 0;
     
-    valorRecebido = (cpf[digito] - '0');
+    valorRecebido = (cpf[digito] + ASCII2NUM);
 
     if(verificador != valorRecebido)return 0;
     return 1;
