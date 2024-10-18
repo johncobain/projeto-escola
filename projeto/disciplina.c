@@ -14,7 +14,7 @@
 int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisciplina);
 void listarDisciplina(Disciplina lista[], int qtdDisciplina);
 // void inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina);
-// int excluirDisciplina(Disciplina lista[], int qtdDisciplina);
+int excluirDisciplina(Disciplina lista[], int qtdDisciplina);
 // int atualizarDisciplina(Disciplina lista[], int qtdDisciplina);
 
 
@@ -70,25 +70,31 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], int qt
 				system ("cls");
 				listarDisciplina(listaDisciplina, qtdDisciplina);
 				break;
-			}/*
+			}
 			case 3:{
+				error("Opcao invalida");
+				break;
+			}
+			case 4:{
 				system ("cls");
 				int retorno = excluirDisciplina(listaDisciplina, qtdDisciplina);
-				if (retorno != -1){
-				qtdDisciplina = retorno;
-			} 
-				break;
-			}
-			case 4: {
-			int retorno = atualizarDisciplina(listaDisciplina, qtdDisciplina);
-
-				break;
-			}
+				switch(retorno){
+					case ERRO_MATRICULA: 
+						system("cls");
+						error("Codigo Invalido"); break;
+					case NAO_ENCONTRADO: 
+						system("cls");
+						error("Codigo Inexistente"); break;
+					case SUCESSO_EXCLUSAO: sucess("Disciplina excluida com sucesso!"); qtdDisciplina--; break;
+				}
+				break; 
+			}/*
 			case 5: {
 			int retorno = atualizarDisciplina(listaDisciplina, qtdDisciplina);
 
 				break;
 			}*/
+			default:error("Opcao invalida");
 		}
 	}
 }
@@ -167,35 +173,33 @@ void listarDisciplina(Disciplina lista[], int qtdDisciplina){
 	scanf("%c", &esc);
 	system("cls");
 }
-/*  
+
 int excluirDisciplina(Disciplina lista[], int qtdDisciplina){
     system ("cls");
-int codigo, achou = 0;
- 
-printf("Digite o codigo da disciplina a ser excluido:");
-  scanf("%d",&codigo);
-  
-for (int i = 0; i < qtdDisciplina; i++){
-if (codigo == lista[i].codigo){
-    achou = 1;
-  
-          for (int j =i; j<qtdDisciplina - 1; j++){
-              lista[j]=lista[j+1];
-  }   
-      qtdDisciplina--;  
-        break;
-  }
-     
-  }
-  if (achou == 1) {
-    printf("Disciplina excluida com sucesso\n");
-    return qtdDisciplina;
-  } else {
-    printf("Disciplina não encontrada\n");
-    return -1;
-  }
-     }
+	char codigo[7];
+	int achou = 0;
+	fflush(stdin);
+	printf("Digite o codigo da disciplina a ser excluido:");
+  	fgets(codigo, 7, stdin);
+	fflush(stdin);
 
+	int len = strlen(codigo) - 1;
+	if (codigo[len] == '\n') codigo[len] = '\0';
+	if(validarCodigo(codigo)==0) return ERRO_MATRICULA;
+  
+	for (int i = 0; i < qtdDisciplina; i++){
+		if (strcmp(codigo, lista[i].codigo)==0){
+        	for (int j =i; j<qtdDisciplina - 1; j++){
+            	lista[j]=lista[j+1];
+  			}   
+    		achou = 1;
+      		break;
+  		}
+  	}
+  	if (achou) return SUCESSO_EXCLUSAO;
+	return NAO_ENCONTRADO;
+}
+/*
 int atualizarDisciplina(Disciplina lista[], int qtdDisciplina) {
   int codigo, achou = 0;
   printf("Digite o codigo da Disciplina a ser atualizada: ");

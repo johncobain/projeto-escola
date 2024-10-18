@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
 #include "utils.h"
 #include "pessoa.h"
@@ -97,6 +98,9 @@ int validarCodigo(char codigo[7]){
     for(int i = 0; i < 7 - 1; i++){
         if(i<3 && (toupper(codigo[i])<'A'||toupper(codigo[i])>'Z')){
             return 0;
+        }
+        if(i<3){
+            codigo[i] = toupper(codigo[i]);
         }
         if((i>=3&&i<7) && (codigo[i]<'0'||codigo[i]>'9')){
             return 0;
