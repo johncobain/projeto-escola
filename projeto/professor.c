@@ -164,12 +164,13 @@ void listarProfessor(Pessoa lista[], int qtdProfessor){
 	char esc;
     system ("cls");
 	printf("\n");
-    printLine('-',50);
 	if(qtdProfessor==0){
+    	printLine('-',30);
 		printf("Lista vazia.\n");
-		printLine('-',50);
+		printLine('-',30);
 	}else{
-			printf("Lista de Professores\t|Tamanho: %d\n",qtdProfessor);
+		printLine('-',50);
+		printf("Lista de Professores\t|Tamanho: %d\n",qtdProfessor);
     	printLine('-',50);
 		for (int i = 0; i < qtdProfessor; i++){
 			printf("Nome:               \t|%s\n",lista[i].nome);

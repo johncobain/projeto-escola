@@ -164,11 +164,12 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 	char esc;
     system ("cls");
 	printf("\n");
-    printLine('-',50);
 	if(qtdAluno==0){
+    	printLine('-',30);
 		printf("Lista vazia.\n");
-		printLine('-',50);
+		printLine('-',30);
 	}else{
+    	printLine('-',50);
 		printf("Lista de Alunos    \t|Tamanho: %d\n",qtdAluno);
     	printLine('-',50);
 		for (int i = 0; i < qtdAluno; i++){
