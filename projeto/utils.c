@@ -82,18 +82,45 @@ int validarData(int d, int m, int a){
     return 1;
 }
 
-int validarCpf(char cpf[]){
-    for(int i = 0; i<15; i++){
-        if(i<3||(i>3&&i<7)||(i>7&&i<11)||(i>11&&i<14)){//xxx.xxx.xxx-xx
-            if(!(cpf[i]>= '0'&&cpf[i]<='9')) return 0;
-        }else if(i==3||i==7){
-            if(cpf[i]!= '.') return 0;
-        }else if(i==11){
-            if(cpf[i]!= '-') return 0;
-        }else{
-            return 1;
-        }
+int validarNumerosVerificadores(char cpf[TAM_CPF], int posicaoVerificador){
+    int i, j;
+    int digito = posicaoVerificador + 8;
+    int pesosDigitos[10] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+    int verificador = 0, valorRecebido;
+    int resto;
+
+    for(i = 0, j = digito - 1; i < digito; i++, j--){
+        verificador += (cpf[i] - '0') * pesosDigitos[j];
     }
+
+    resto = verificador % 11;
+    if(resto>=2) verificador = 11-resto;
+    else verificador = 0;
+    
+    valorRecebido = (cpf[digito] - '0');
+
+    if(verificador != valorRecebido)return 0;
+    return 1;
+}
+
+int validarCpf(char cpf[TAM_CPF]){
+    int numerosIguais = 1;
+
+    for(int i = 0; i < TAM_CPF - 1; i++){
+        if(cpf[i] == '\n' || (cpf[i] < '0' || cpf[i] > '9'))return 0;
+    }
+    if(cpf[TAM_CPF-1] != '\0')return 0;
+
+    for(int i = 1; i < TAM_CPF -  1; i++){
+        if(cpf[0] == cpf[i])numerosIguais++;
+    }
+    if(numerosIguais == TAM_CPF - 1)return  0;
+
+    if(validarNumerosVerificadores(cpf, 1)){
+        return validarNumerosVerificadores(cpf, 2);
+    }
+
+    return 0;
 }
 
 

@@ -21,6 +21,6 @@ typedef struct dados_pessoa{
   char nome[50];
   char sexo;
   Data data_nascimento;
-  char cpf[15];
+  char cpf[TAM_CPF];
   
 } Pessoa; 

@@ -11,7 +11,7 @@
 
 int cadastrarProfessor(Pessoa lista[], int qtdProfessor);
 void listarProfessor(Pessoa lista[], int qtdProfessor);
-// int excluirProfessor(Pessoa lista[], int qtdProfessor);
+int excluirProfessor(Pessoa lista[], int qtdProfessor);
 // int atualizarProfessor(Pessoa lista[], int qtdProfessor);
 
 int gerarMatriculaP(){
@@ -70,14 +70,20 @@ int mainProfessor(Pessoa listaProfessor[], int qtdProfessor) {
 				listarProfessor(listaProfessor, qtdProfessor);
 				break;
 			}
-			// case 3:{
-			// 	system ("cls");
-			// 	int retorno = excluirProfessor(listaProfessor, qtdProfessor);
-			// 	if (retorno != -1){
-			// 	qtdProfessor = retorno;
-			// 	printf("\n");  
-			// 	break;
-			// }
+			case 3:{
+				system ("cls");
+				int retorno = excluirProfessor(listaProfessor, qtdProfessor);
+				switch(retorno){
+					case ERRO_MATRICULA: 
+						system("cls");
+						error();printf("Matricula Invalida"); resetC(); break;
+					case NAO_ENCONTRADO: 
+						system("cls");
+						error();printf("Matricula Inexistente"); resetC(); break;
+					case SUCESSO_EXCLUSAO: excluido(); qtdProfessor--; break;
+				}
+			break; 
+			}
 			// case 4:{
 			// 	system ("cls");
 			// 	int retorno = atualizarProfessor(listaProfessor, qtdProfessor);
@@ -128,9 +134,9 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
 	}else return ERRO_DATA_INVALIDA;
 
 
-	printf("Digite o CPF(xxx.xxx.xxx-xx): ");
-	fgets(lista[qtdProfessor].cpf, 15, stdin);
-	len = strlen(lista[qtdProfessor].cpf) - 1;
+	printf("Digite o CPF(apenas numeros): ");
+	fgets(lista[qtdProfessor].cpf, TAM_CPF, stdin);
+	fflush(stdin);
 	if(validarCpf(lista[qtdProfessor].cpf)==0) return ERRO_CPF_INVALIDO;
 
 	if(lista[qtdProfessor].matricula<=2009000||lista[qtdProfessor].matricula>2009000+TAM_PROFESSOR){
@@ -165,35 +171,28 @@ void listarProfessor(Pessoa lista[], int qtdProfessor){
 		scanf("%c", &esc);
 		system("cls");  
 }
-/*
+
 int excluirProfessor(Pessoa lista[], int qtdProfessor){
     system ("cls");
-int matricula, achou = 0;
+	int matricula, achou = 0;
  
-printf("Digite a matricula do Professor a ser excluido:");
-  scanf("%d",&matricula);
+	printf("Digite a matricula do professor a ser excluido:");
+  	scanf("%d",&matricula);
+	if(matricula<0) return ERRO_MATRICULA;
   
-for (int i = 0; i < qtdProfessor; i++){
-if (matricula == lista[i].matricula){
-    achou = 1;
-  
-          for (int j =i; j<qtdProfessor - 1; j++){
-              lista[j]=lista[j+1];
-  }   
-      qtdProfessor--;  
-        break;
-  }
-     
-  }
-  if (achou == 1) {
-    printf("Professor excluido com sucesso\n");
-    return qtdProfessor;
-  } else {
-    printf("Professor não encontrado\n");
-    return -1;
-  }
-     } 
-
+	for (int i = 0; i < qtdProfessor; i++){
+		if (matricula == lista[i].matricula){
+			for (int j=i; j<qtdProfessor-1; j++){
+				lista[j]=lista[j+1];
+			}   
+			achou = 1; 
+			break;
+		}	
+  	}
+	if (achou) return SUCESSO_EXCLUSAO;
+	return NAO_ENCONTRADO;
+} 
+/*
 int atualizarProfessor(Pessoa lista[], int qtdProfessor) {
   int matricula, achou = 0;
   printf("\nDigite a matrícula do Professor a ser atualizado: ");

@@ -148,9 +148,9 @@ int cadastrarAluno(Pessoa lista[], int qtdAluno){
 	}else return ERRO_DATA_INVALIDA;
 
 
-	printf("Digite o CPF(xxx.xxx.xxx-xx): ");
-	fgets(lista[qtdAluno].cpf, 15, stdin);
-	len = strlen(lista[qtdAluno].cpf) - 1;
+	printf("Digite o CPF(apenas numeros): ");
+	fgets(lista[qtdAluno].cpf, TAM_CPF, stdin);
+	fflush(stdin);
 	if(validarCpf(lista[qtdAluno].cpf)==0) return ERRO_CPF_INVALIDO;
 
 	if(lista[qtdAluno].matricula<=2024000||lista[qtdAluno].matricula>2024000+TAM_ALUNO){

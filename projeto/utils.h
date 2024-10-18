@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+#define TAM_CPF 12
 
 
 void printLine(char c, int tam);
