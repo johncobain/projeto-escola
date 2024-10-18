@@ -4,6 +4,7 @@
 #include <ctype.h>
 
 #include "escola.h"
+#include "pessoa.h"
 #include "aluno.h"
 #include "professor.h"
 #include "disciplina.h"
