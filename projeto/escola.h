@@ -7,3 +7,4 @@
 #define LISTA_CHEIA -7
 #define SUCESSO_EXCLUSAO -8
 #define NAO_ENCONTRADO -9
+#define NUM_INVALIDO -10

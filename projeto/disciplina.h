@@ -1,15 +1,19 @@
-
 #include<stdio.h>
+// #include "escola.h"
+// #include "pessoa.h"
+#include "aluno.h"
+// #include "professor.h"
 
+#define TAM_DISC 3
 
-typedef struct {
-
-char nome[20];
-int codigo;
-int semestre;
-char professor[20];
+typedef struct dados_disciplina{
+    char nome[50];
+    char codigo[7];//INF000
+    int semestre;
+    int vagas;
+    Pessoa professor;
+    Pessoa alunos[TAM_ALUNO];
 } Disciplina; 
 
 
-int mainDisciplina(Disciplina lista[], int qtdDisciplina);
-
+int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], int qtdDisciplina);

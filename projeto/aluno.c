@@ -182,10 +182,10 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 			printLine('-',50);
 		}     
 	}
-		printf("Pressione ENTER para voltar para o menu: ");
-		getchar();
-		scanf("%c", &esc);
-		system("cls");
+	printf("Pressione ENTER para voltar para o menu: ");
+	getchar();
+	scanf("%c", &esc);
+	system("cls");
 }
 
 

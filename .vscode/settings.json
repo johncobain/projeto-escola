@@ -2,6 +2,7 @@
     "files.associations": {
         "escola.h": "c",
         "utils.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "aluno.h": "c"
     }
 }

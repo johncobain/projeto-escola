@@ -14,3 +14,5 @@ typedef struct dados_pessoa{
   char cpf[TAM_CPF];
   
 } Pessoa; 
+
+int buscarPessoa(Pessoa lista[], int matricula);

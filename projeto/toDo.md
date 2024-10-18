@@ -1,5 +1,7 @@
 # To-Do List
- - Better Matricula
+ - Better Matricula 
+ - Disciplina.c
+ - Pessoa.c
 ---
 ## tasks:
 ### Cadastro: Criar, Ler, Atualizar, Excluir

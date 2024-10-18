@@ -6,8 +6,8 @@
 #include "utils.h"
 #include "aluno.h"
 #include "professor.h"
+#include "disciplina.h"
 
-// #include "disciplina.h"
 
 int menuGeral(){
 	int opcao;
@@ -34,8 +34,8 @@ int main() {
 	Pessoa listaProfessor[TAM_PROFESSOR];
 	int qtdProfessor = 0;
 
-	// Disciplina disciplina;
-	// int qtdDisciplina=0;
+	Disciplina listaDisciplina[TAM_DISC];
+	int qtdDisciplina=0;
 	
 	
 	while(1){
@@ -66,19 +66,13 @@ int main() {
 				qtdProfessor = mainProfessor(listaProfessor, qtdProfessor);
 				break;
 			}
-			/*
 			case 3:{
 				system ("cls");
-				printf("\n");
-				printLine('-',30);
-				printf("Modulo Disciplina\n");
-				printLine('-',30);
-				qtdDisciplina = mainDisciplina(listaDisciplina, qtdDisciplina);
+				qtdDisciplina = mainDisciplina(listaDisciplina, listaProfessor, qtdDisciplina);
 				break;
-			}*/
+			}
 			default:{error("Opcao invalida");}    
 		}
-
 	}	
 	return 0;
 }
