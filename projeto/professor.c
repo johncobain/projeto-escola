@@ -12,7 +12,7 @@
 int cadastrarProfessor(Pessoa lista[], int qtdProfessor);
 void listarProfessor(Pessoa lista[], int qtdProfessor);
 int excluirProfessor(Pessoa lista[], int qtdProfessor);
-// int atualizarProfessor(Pessoa lista[], int qtdProfessor);
+int atualizarProfessor(Pessoa lista[], int qtdProfessor);
 
 int gerarMatriculaP(){
 	static int matriculaProfessor=2009000;// em homenagem a criação do curso de ADS ifba
@@ -84,12 +84,26 @@ int mainProfessor(Pessoa listaProfessor[], int qtdProfessor) {
 				}
 			break; 
 			}
-			// case 4:{
-			// 	system ("cls");
-			// 	int retorno = atualizarProfessor(listaProfessor, qtdProfessor);
-			// 	printf("\n");  
-			// 	break;
-			// }
+			case 4:{
+				system ("cls");
+				int retorno = atualizarProfessor(listaProfessor, qtdProfessor);
+				switch(retorno){
+					case ERRO_CADASTRO_SEXO: 
+						system("cls");
+						error();printf("Sexo invalido"); resetC(); break;
+					case ERRO_DATA_INVALIDA: 
+						system("cls");
+						error();printf("Data invalida"); resetC(); break;
+					case ERRO_CPF_INVALIDO: 
+						system("cls");
+						error();printf("Cpf invalido"); resetC(); break;
+					case NAO_ENCONTRADO: 
+						system("cls");
+						error();printf("Matricula Inexistente"); resetC(); break;
+					case SUCESSO_CADASTRO: atualizado();break;
+				}
+				break;
+			}
 			default:invalido();}	
 	}
 }
@@ -172,6 +186,7 @@ void listarProfessor(Pessoa lista[], int qtdProfessor){
 		system("cls");  
 }
 
+
 int excluirProfessor(Pessoa lista[], int qtdProfessor){
     system ("cls");
 	int matricula, achou = 0;
@@ -192,49 +207,20 @@ int excluirProfessor(Pessoa lista[], int qtdProfessor){
 	if (achou) return SUCESSO_EXCLUSAO;
 	return NAO_ENCONTRADO;
 } 
-/*
-int atualizarProfessor(Pessoa lista[], int qtdProfessor) {
-  int matricula, achou = 0;
-  printf("\nDigite a matrícula do Professor a ser atualizado: ");
-  scanf("%d", &matricula);
-int i = 0;
-  for (int i=0; i < qtdProfessor; i++) {
-    if (matricula == lista[i].matricula) {
-      achou = 1;
-    printf("\n");
-    printLine('-',30);
-    getchar();
-    printf("\nDigite o nome: ");
-    fgets(lista[i].nome,19,stdin);
-    size_t ln = strlen(lista[i].nome) - 1; //size_t = unsigned integer type
-        if (lista[i].nome[ln] == '\n')
-          lista[i].nome[ln] = '\0';
-    printf("Digite o sexo: ");
-    scanf("%c", &lista[i].sexo);
-    printf("Digite o dia de nascimento: ");
-    scanf("%d", &lista[i].data_nascimento.dia);
-    printf("Digite o mês de nascimento: ");
-    scanf("%d", &lista[i].data_nascimento.mes);
-    printf("Digite o ano de nascimento: ");
-    scanf("%d", &lista[i].data_nascimento.ano);
-    getchar();
-    printf("Digite o CPF: ");
-    fgets(lista[i].cpf, 15, stdin);
-        ln = strlen(lista[i].cpf) - 1;
-        if (lista[i].cpf[ln] == '\n')
-          lista[i].cpf[ln] = '\0';
-      
-    printLine('-',30);  
-    break;
-    }
-  }
 
-  if (achou == 1) {
-    printf("Professor atualizado com sucesso\n");
-    return i;
-  } else {
-    printf("Professor não encontrado\n");
-    return -1;
-  }
-  }
-*/
+int atualizarProfessor(Pessoa lista[], int qtdProfessor){
+    system ("cls");
+	int matricula, achou = 0;
+
+	printf("Digite a matricula do professor a ser atualizado: ");
+	scanf("%d", &matricula);
+	if(matricula<0) return ERRO_MATRICULA;
+
+	for (int i=0; i < qtdProfessor; i++) {
+		if (matricula == lista[i].matricula) {
+			achou = 1;
+			return cadastrarProfessor(lista, i);		
+		}
+	}
+	return NAO_ENCONTRADO; 
+}
