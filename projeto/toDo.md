@@ -1,13 +1,12 @@
 # To-Do List
  - Better Matricula
- - CPF validation
 ---
 ## tasks:
 ### Cadastro: Criar, Ler, Atualizar, Excluir
 ### Validações: Data, CPF
  - ~~Cadastro de Alunos (Matrícula, Nome, Sexo, Data Nascimento, CPF).~~
 
- - Cadastro de Professores (Matrícula, Nome, Sexo, Data Nascimento, CPF).
+ - ~~Cadastro de Professores (Matrícula, Nome, Sexo, Data Nascimento, CPF).~~
 
  - Cadastro de Disciplinas (Nome, Código, Semestre, Professor, Vagas)
     - Inserir/Excluir aluno de uma disciplina
