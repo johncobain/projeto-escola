@@ -9,8 +9,8 @@
 
  - ~~Cadastro de Professores (Matrícula, Nome, Sexo, Data Nascimento, CPF).~~
 
- - Cadastro de Disciplinas (Nome, Código, Semestre, Professor, Vagas)
-    - Inserir/Excluir aluno de uma disciplina
+ - ~~Cadastro de Disciplinas (Nome, Código, Semestre, Professor, Vagas)~~
+    - ~~Inserir/Excluir aluno de uma disciplina~~
     - ~~Listar Disciplinas (dados da disciplina sem os alunos)~~
     - ~~Listar uma disciplina (dados da disciplina e os alunos matriculados)~~
 
