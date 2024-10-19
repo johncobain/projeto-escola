@@ -68,7 +68,7 @@ int main() {
 			}
 			case 3:{
 				system ("cls");
-				qtdDisciplina = mainDisciplina(listaDisciplina, listaProfessor, qtdDisciplina);
+				qtdDisciplina = mainDisciplina(listaDisciplina, listaProfessor, listaAluno, qtdDisciplina);
 				break;
 			}
 			default:{error("Opcao invalida");}    

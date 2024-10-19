@@ -5,6 +5,7 @@
 // #include "professor.h"
 
 #define TAM_DISC 3
+#define MAX_VAGAS 50
 
 typedef struct dados_disciplina{
     char nome[50];
@@ -12,8 +13,9 @@ typedef struct dados_disciplina{
     int semestre;
     int vagas;
     Pessoa professor;
-    Pessoa alunos[TAM_ALUNO];
+    Pessoa alunos[MAX_VAGAS];
+    int alunosCad;
 } Disciplina; 
 
 
-int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], int qtdDisciplina);
+int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa listaAluno[], int qtdDisciplina);
