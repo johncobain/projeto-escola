@@ -15,6 +15,7 @@ int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisc
 void listarDisciplina(Disciplina lista[], int qtdDisciplina);
 int listarUmaDisciplina(Disciplina lista[], int qtdDisciplina);
 int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina);
+int excluirAlunoDisciplina(Disciplina lista[], Pessoa aluno[], int qtdDisciplina);
 int excluirDisciplina(Disciplina lista[], int qtdDisciplina);
 int atualizarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisciplina);
 
@@ -30,8 +31,9 @@ int menuDisciplina(){
 	printf("2. Listar\n");
 	printf("3. Listar uma Disciplina\n");
 	printf("4. Inserir Aluno\n");
-	printf("5. Excluir\n");
-	printf("6. Atualizar\n");
+	printf("5. Excluir Aluno\n");
+	printf("6. Excluir\n");
+	printf("7. Atualizar\n");
 	printLine('-',30);
 	scanf("%d", &opcao);
 	return opcao;
@@ -104,6 +106,22 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 				break;
 			}
 			case 5:{
+				int retorno = excluirAlunoDisciplina(listaDisciplina, listaAluno, qtdDisciplina);
+				switch(retorno){
+					case ERRO_MATRICULA: 
+						system("cls");
+						error("Matricula ou Codigo Invalidos"); break;
+					case NAO_ENCONTRADO: 
+						system("cls");
+						error("Matricula ou Codigo Inexistentes"); break;
+					case LISTA_VAZIA: 
+						system("cls");
+						error("Lista da Disciplina vazia"); break;
+					case SUCESSO_EXCLUSAO: sucess("Aluno excluido na Disciplina com sucesso!");break;
+				}
+				break;
+			}
+			case 6:{
 				system ("cls");
 				int retorno = excluirDisciplina(listaDisciplina, qtdDisciplina);
 				switch(retorno){
@@ -117,7 +135,7 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 				}
 				break; 
 			}
-			case 6: {
+			case 7: {
 			int retorno = atualizarDisciplina(listaDisciplina, listaProfessor, qtdDisciplina);
 			switch(retorno){
 					case ERRO_MATRICULA: 
@@ -276,7 +294,7 @@ int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
 			if(validarCodigo(codigo)==0) return ERRO_MATRICULA;
 		
 			for (int j = 0; j < qtdDisciplina; j++){
-				if (strcmp(codigo, lista[i].codigo)==0){
+				if (strcmp(codigo, lista[j].codigo)==0){
 					if(lista[j].alunosCad< lista[j].vagas){
 						lista[j].alunos[lista[j].alunosCad] = aluno[i];
 						lista[j].alunosCad += 1;
@@ -286,6 +304,45 @@ int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
 				}
 			}
 			if (achou) return SUCESSO_CADASTRO;
+			return NAO_ENCONTRADO;
+		}
+	}
+	return NAO_ENCONTRADO;
+}
+
+int excluirAlunoDisciplina(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
+	system ("cls");
+	char codigo[7];
+	int matricula;
+	int achou;
+
+	fflush(stdin);
+	printf("Digite o codigo da disciplina a ser listada: ");
+  	fgets(codigo, 7, stdin);
+	fflush(stdin);
+
+	int len = strlen(codigo) - 1;
+	if (codigo[len] == '\n') codigo[len] = '\0';
+	if(validarCodigo(codigo)==0) return ERRO_MATRICULA;
+  
+	for (int i = 0; i < qtdDisciplina; i++){
+		if (strcmp(codigo, lista[i].codigo)==0){
+			if(lista[i].alunosCad == 0) return LISTA_VAZIA;
+			printf("Digite a matricula do aluno a ser excluido: ");
+			scanf("%d", &matricula);
+			if(matricula<0) return ERRO_MATRICULA;
+
+			for (int j=0; j < lista[i].alunosCad; j++) {
+				if (matricula == lista[i].alunos[j].matricula) {
+					for (int k=j; k<lista[i].alunosCad-1; k++){
+						lista[i].alunos[k]=lista[i].alunos[k+1];
+					}   
+					lista[i].alunosCad -= 1;
+					achou = 1;
+					break;
+				}
+			}
+			if (achou) return SUCESSO_EXCLUSAO;
 			return NAO_ENCONTRADO;
 		}
 	}
