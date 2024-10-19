@@ -1,7 +1,6 @@
 # To-Do List
  - Better Matricula 
- - Disciplina.c
- - Pessoa.c
+ - Disciplina inserir aluno ponteiros
 ---
 ## tasks:
 ### Cadastro: Criar, Ler, Atualizar, Excluir
@@ -12,8 +11,8 @@
 
  - Cadastro de Disciplinas (Nome, Código, Semestre, Professor, Vagas)
     - Inserir/Excluir aluno de uma disciplina
-    - Listar Disciplinas (dados da disciplina sem os alunos)
-    - Listar uma disciplina (dados da disciplina e os alunos matriculados)
+    - ~~Listar Disciplinas (dados da disciplina sem os alunos)~~
+    - ~~Listar uma disciplina (dados da disciplina e os alunos matriculados)~~
 
 - Relatórios
     - Alunos
