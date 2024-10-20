@@ -36,3 +36,7 @@ Projeto realizado como trabalho para a matéria INF029(Laboratório de Programa�
 - [@johncobain](https://github.com/johncobain)
 - [@uKuroo](https://github.com/uKuroo)
 - [@Guiv4sques](https://github.com/Guiv4sques)
+
+## Professor
+
+- [@renatoln](https://github.com/renatoln)
