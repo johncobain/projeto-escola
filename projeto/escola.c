@@ -7,6 +7,7 @@
 #include "aluno.h"
 #include "professor.h"
 #include "disciplina.h"
+#include "relatorio.h"
 
 
 int menuGeral(){
@@ -20,6 +21,7 @@ int menuGeral(){
 	printf("1. Gerenciar Aluno\n");
 	printf("2. Gerenciar Professor\n");
 	printf("3. Gerenciar Disciplina\n");
+	printf("4. Relatorios\n");
 	printLine('-',30);
 	scanf("%d", &opcao);
 	return opcao;
@@ -69,6 +71,11 @@ int main() {
 			case 3:{
 				system ("cls");
 				qtdDisciplina = mainDisciplina(listaDisciplina, listaProfessor, listaAluno, qtdDisciplina);
+				break;
+			}
+			case 4:{
+				system ("cls");
+				mainRelatorio(listaDisciplina, qtdDisciplina, listaProfessor, qtdProfessor, listaAluno, qtdAluno);
 				break;
 			}
 			default:{error("Opcao invalida");}    

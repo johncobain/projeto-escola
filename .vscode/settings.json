@@ -3,6 +3,7 @@
         "escola.h": "c",
         "utils.h": "c",
         "stdlib.h": "c",
-        "aluno.h": "c"
+        "aluno.h": "c",
+        "pessoa.h": "c"
     }
 }
