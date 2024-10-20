@@ -23,16 +23,16 @@ void listarPDisciplina(Pessoa lista[], int qtdPessoa);
 int menuRelatorio(){
 	int opcao;
 	printf("\n");
-	printLine('-',40);
+	printLine('-',45);
 	printf("#### Modulo Relatorios ####\n");
-	printLine('-',40);
+	printLine('-',45);
 	printf("0. Voltar\n");
 	printf("1. Relatorios Alunos\n");
 	printf("2. Relatorios Professores\n");
 	printf("3. Aniversariantes do mes\n");
 	printf("4. Buscar Pessoas\n");
 	printf("5. Disciplinas com mais de 40 vagas\n");
-	printLine('-',40);
+	printLine('-',45);
 	scanf("%d", &opcao);
 	return opcao;
 }
@@ -179,15 +179,15 @@ int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno){
 int menuRelPessoas(int eh_aluno){
 	int opcao;
 	printf("\n");
-	printLine('-',40);
+	printLine('-',45);
 	eh_aluno?printf("#### Relatorios dos Alunos ####\n"):printf("#### Relatorios dos Professores ####\n");
-	printLine('-',40);
+	printLine('-',45);
 	printf("0. Voltar\n");
 	printf("1. Listar\n");
 	printf("2. Listar por Sexo\n");
 	printf("3. Listar por Data de Nascimento\n");
 	if(eh_aluno)printf("4. Matriculados em menos de 3 disciplinas\n");
-	printLine('-',40);
+	printLine('-',45);
 	scanf("%d", &opcao);
 	return opcao;
 }
@@ -195,9 +195,9 @@ int menuRelPessoas(int eh_aluno){
 void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	int esc;
 	printf("\n");
-	printLine('-',40);
+	printLine('-',45);
 	eh_aluno?printf("#### Alunos do Sexo Masculino ####\n"):printf("#### Professores do Sexo Masculino ####\n");
-	printLine('-',40);
+	printLine('-',45);
 	for(int i = 0; i< qtdPessoa; i++){
 		if(lista[i].sexo=='M'){
 			printf("\n");
@@ -206,9 +206,9 @@ void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
 			printf("\n");
 		}
 	}
-	printLine('-',40);
+	printLine('-',45);
 	eh_aluno?printf("#### Alunas do Sexo Feminino ####\n"):printf("#### Professoras do Sexo Feminino ####\n");
-	printLine('-',40);
+	printLine('-',45);
 	for(int i = 0; i< qtdPessoa; i++){
 		if(lista[i].sexo=='F'){
 			printf("\n");
@@ -217,12 +217,15 @@ void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
 			printf("\n");
 		}
 	}
-	printLine('-',40);
+	printLine('-',45);
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);
 	system("cls");
 }
+
 void listarAlfa(Pessoa lista[], int qtdPessoa);
+
 void listarNascimento(Pessoa lista[], int qtdPessoa);
+
 void listarPDisciplina(Pessoa lista[], int qtdPessoa);
