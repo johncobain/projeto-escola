@@ -12,6 +12,7 @@
 #include "utils.h"
 #include "relatorio.h"
 
+int menuRelatorio();
 int menuRelPessoas(int eh_aluno);
 
 int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno);
@@ -23,22 +24,8 @@ void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno);
 
 void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor);
 
-int menuRelatorio(){
-	int opcao;
-	printf("\n");
-	printLine('-',45);
-	printf("#### Modulo Relatorios ####\n");
-	printLine('-',45);
-	printf("0. Voltar\n");
-	printf("1. Relatorios Alunos\n");
-	printf("2. Relatorios Professores\n");
-	printf("3. Aniversariantes do mes\n");
-	printf("4. Buscar Pessoas\n");
-	printf("5. Disciplinas com mais de 40 vagas\n");
-	printLine('-',45);
-	scanf("%d", &opcao);
-	return opcao;
-}
+void discMinVagas(Disciplina disciplina[],int qtdDisciplina);
+ 
 
 int mainRelatorio(Disciplina listaDisciplina[], int qtdDisciplina, Pessoa listaProfessor[], int qtdProfessor, Pessoa listaAluno[], int qtdAluno){
     while(1){		
@@ -78,23 +65,12 @@ int mainRelatorio(Disciplina listaDisciplina[], int qtdDisciplina, Pessoa listaP
 					case SUCESSO_CADASTRO: sucess("Aluno cadastrado na Disciplina com sucesso!");break;
 				}
 				break;
-			}
-			case 5:{
-				int retorno = excluirAlunoDisciplina(listaDisciplina, listaAluno, qtdDisciplina);
-				switch(retorno){
-					case ERRO_MATRICULA: 
-						system("cls");
-						error("Matricula ou Codigo Invalidos"); break;
-					case NAO_ENCONTRADO: 
-						system("cls");
-						error("Matricula ou Codigo Inexistentes"); break;
-					case LISTA_VAZIA: 
-						system("cls");
-						error("Lista da Disciplina vazia"); break;
-					case SUCESSO_EXCLUSAO: sucess("Aluno excluido na Disciplina com sucesso!");break;
-				}
-				break;
 			}*/
+			case 5:{
+				system("cls");
+				discMinVagas(listaDisciplina,qtdDisciplina);
+				break;
+			}
 			default:error("Opcao invalida");
 		}
 	}
@@ -158,6 +134,22 @@ int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	}
 }
 
+int menuRelatorio(){
+	int opcao;
+	printf("\n");
+	printLine('-',45);
+	printf("#### Modulo Relatorios ####\n");
+	printLine('-',45);
+	printf("0. Voltar\n");
+	printf("1. Relatorios Alunos\n");
+	printf("2. Relatorios Professores\n");
+	printf("3. Aniversariantes do mes\n");
+	printf("4. Buscar Pessoas\n");
+	printf("5. Disciplinas por minimo de vagas\n");
+	printLine('-',45);
+	scanf("%d", &opcao);
+	return opcao;
+}
 
 int menuRelPessoas(int eh_aluno){
 	int opcao;
@@ -293,6 +285,34 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 	}
 	printf("\n");
 	printLine('-',60);
+	printf("Pressione ENTER para voltar para o menu: ");
+	fflush(stdin);
+	scanf("%c", &esc);
+	system("cls");
+}
+
+
+void discMinVagas(Disciplina disciplina[],int qtdDisciplina){
+	int esc;
+	int minVagas;
+	printf("Digite a quantidade minima de Vagas: ");
+	scanf("%d", &minVagas);
+	fflush(stdin);
+	system("cls");
+	printf("\n");
+	printLine('-',50);
+	printf("#### Disciplinas com no minimo %d vagas ####\n", minVagas);
+	printLine('-',50);
+	for(int i = 0; i < qtdDisciplina; i++){
+		if(disciplina[i].vagas>=minVagas){
+			printf("Nome:              \t|%s\n",disciplina[i].nome);
+			printf("Codigo:            \t|%s\n",disciplina[i].codigo);
+			printf("Semestre:          \t|%d\n",disciplina[i].semestre);
+			printf("Professor:         \t|%s\n",disciplina[i].professor.nome);
+			printf("Vagas:             \t|%d\n",disciplina[i].vagas);
+			printLine('-',50);
+		}
+	}
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);

@@ -127,7 +127,7 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(disciplina[0].codigo, "INF027");
     disciplina[0].semestre = 20241;
     disciplina[0].professor = professor[0];
-    disciplina[0].vagas = 10;
+    disciplina[0].vagas = 12;
     disciplina[0].alunosCad = 1;
     disciplina[0].alunos[0] = aluno[1];
 
@@ -135,7 +135,7 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(disciplina[1].codigo, "INF029");
     disciplina[1].semestre = 20242;
     disciplina[1].professor = professor[0];
-    disciplina[1].vagas = 10;
+    disciplina[1].vagas = 6;
     disciplina[1].alunosCad = 3;
     disciplina[1].alunos[0] = aluno[0];
     disciplina[1].alunos[1] = aluno[2];
@@ -145,7 +145,7 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(disciplina[2].codigo, "INF031");
     disciplina[2].semestre = 20242;
     disciplina[2].professor = professor[3];
-    disciplina[2].vagas = 10;
+    disciplina[2].vagas = 6;
     disciplina[2].alunosCad = 3;
     disciplina[2].alunos[0] = aluno[0];
     disciplina[2].alunos[1] = aluno[1];
@@ -182,7 +182,7 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(disciplina[6].codigo, "INF006");
     disciplina[6].semestre = 20242;
     disciplina[6].professor = professor[1];
-    disciplina[6].vagas = 10;
+    disciplina[6].vagas = 8;
     disciplina[6].alunosCad = 3;
     disciplina[6].alunos[0] = aluno[0];
     disciplina[6].alunos[1] = aluno[2];

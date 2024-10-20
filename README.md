@@ -28,7 +28,7 @@ Projeto realizado como trabalho para a matéria INF029(Laboratório de Programa�
 
     - Lista de pessoas (professor/aluno) a partir de uma string de busca. O usuário informa no mínimo três letras e deve ser listado todas as pessoas que contem essas três letras no nome 
     
-    - Lista de Disciplinas, com nome do professor, que extrapolam 40 vagas.
+    - Lista de Disciplinas, com nome do professor, por mínimo de vagas.✅
 
 ## Execute Localmente
 
