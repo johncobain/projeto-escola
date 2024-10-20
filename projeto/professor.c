@@ -156,8 +156,8 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
 
 	if(lista[qtdProfessor].matricula<=2009000||lista[qtdProfessor].matricula>2009000+TAM_PROFESSOR){
 		lista[qtdProfessor].matricula = gerarMatriculaP();
+		lista[qtdProfessor].disCad = 0;
 	}
-	lista[qtdProfessor].disCad = 0;
 	return SUCESSO_CADASTRO;
 }
 

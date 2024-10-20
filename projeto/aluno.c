@@ -156,8 +156,8 @@ int cadastrarAluno(Pessoa lista[], int qtdAluno){
 
 	if(lista[qtdAluno].matricula<=2024000||lista[qtdAluno].matricula>2024000+TAM_ALUNO){
 		lista[qtdAluno].matricula = gerarMatriculaA();
+		lista[qtdAluno].disCad = 0;
 	}
-	lista[qtdAluno].disCad = 0;
 	return SUCESSO_CADASTRO;
 }
 
