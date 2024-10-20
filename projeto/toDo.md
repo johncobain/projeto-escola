@@ -1,6 +1,7 @@
 # To-Do List
  - Better Matricula 
  - Disciplina inserir aluno ponteiros
+ - Calcular idade
 ---
 ## tasks:
 ### Cadastro: Criar, Ler, Atualizar, Excluir
@@ -26,6 +27,7 @@
         - ~~Listar Professores por sexo (Masculino/Feminino) ~~
         - Listar Professores ordenados por Nome
         - Listar Professores ordenados por data de nascimento
+        - Lista de Professores matriculados em menos de 3 disciplinas
 
     - Aniversariantes do mês
 
