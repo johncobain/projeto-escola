@@ -9,3 +9,4 @@
 #define NAO_ENCONTRADO -9
 #define NUM_INVALIDO -10
 #define SUCESSO_CONSULTA -11
+#define MAX_DISC_CAD -12

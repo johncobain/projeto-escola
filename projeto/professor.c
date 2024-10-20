@@ -157,6 +157,7 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
 	if(lista[qtdProfessor].matricula<=2009000||lista[qtdProfessor].matricula>2009000+TAM_PROFESSOR){
 		lista[qtdProfessor].matricula = gerarMatriculaP();
 	}
+	lista[qtdProfessor].disCad = 0;
 	return SUCESSO_CADASTRO;
 }
 
@@ -179,6 +180,11 @@ void listarProfessor(Pessoa lista[], int qtdProfessor){
 			printf("Data de Nascimento: \t|%02d/%02d/%d\n",lista[i].data_nascimento.dia,lista[i].data_nascimento.mes,lista[i].data_nascimento.ano);
 			printf("Cpf:                \t|%s\n",lista[i].cpf);
 			printf("Matricula:          \t|%d\n",lista[i].matricula);
+			printf("Disciplinas:        \t|");
+			for(int j = 0; j< lista[i].disCad; j++){
+				printf("%s|", lista[i].disciplinas[j]);
+			}
+			printf("\n");
 			printLine('-',50);
 		}     
 	}

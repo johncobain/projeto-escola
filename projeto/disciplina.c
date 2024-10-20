@@ -63,6 +63,9 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 					case NAO_ENCONTRADO: 
 						system("cls");
 						error("Professor nao encontrado"); break;
+					case MAX_DISC_CAD: 
+						system("cls");
+						error("Professor atingiu o Maximo de Disciplinas"); break;
 					case NUM_INVALIDO: 
 						system("cls");
 						error("Numero de vagas invalido"); break;
@@ -101,6 +104,9 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 					case LISTA_CHEIA: 
 						system("cls");
 						error("Lista da Disciplina cheia"); break;
+					case MAX_DISC_CAD: 
+						system("cls");
+						error("Aluno atingiu o Maximo de Disciplinas"); break;
 					case SUCESSO_CADASTRO: sucess("Aluno cadastrado na Disciplina com sucesso!");break;
 				}
 				break;
@@ -173,8 +179,7 @@ int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisc
 	int len = strlen(lista[qtdDisciplina].nome) - 1;
 	if (lista[qtdDisciplina].nome[len] == '\n') lista[qtdDisciplina].nome[len] = '\0';
 
-	char codigo[7];
-	printf("\nDigite o Codigo da disciplina(AAA000): ");
+	printf("Digite o Codigo da disciplina(AAA000): ");
 	fgets(lista[qtdDisciplina].codigo, 7, stdin);
 	fflush(stdin);
 
@@ -183,22 +188,32 @@ int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisc
 	if(validarCodigo(lista[qtdDisciplina].codigo)==0) return ERRO_MATRICULA;
 
 	int semestre;
-	printf("\nDigite o Semestre: ");
+	printf("Digite o Semestre: ");
 	scanf("%d", &semestre);
 	if(semestre<10001||semestre>99999) return ERRO_DATA_INVALIDA;
 	if(semestre%10!=1&&semestre%10!=2) return ERRO_DATA_INVALIDA;
 	lista[qtdDisciplina].semestre = semestre;
 	
 	getchar();
+	if(atualizacao){
+		int i = buscarPessoa(listaProfessor, lista[qtdDisciplina].professor.matricula);
+		for (int l=i; l<listaProfessor[i].disCad; l++){
+			strcpy(listaProfessor[i].disciplinas[l], listaProfessor[i].disciplinas[l+1]);
+		}
+		listaProfessor[i].disCad--;
+	}
 	int matricula;
-	printf("\nDigite a matricula do Professor: ");
+	printf("Digite a matricula do Professor: ");
 	scanf("%d", &matricula);
 	int professor = buscarPessoa(listaProfessor, matricula);
 	if(professor == NAO_ENCONTRADO) return NAO_ENCONTRADO;
+	if(listaProfessor[professor].disCad >= MAX_DISC) return MAX_DISC_CAD;
 	lista[qtdDisciplina].professor = listaProfessor[professor];
+	strcpy(listaProfessor[professor].disciplinas[listaProfessor[professor].disCad], lista[qtdDisciplina].codigo);
+	listaProfessor[professor].disCad++;
 	
 	int vagas;
-	printf("\nDigite a quantidade de vagas: ");
+	printf("Digite a quantidade de vagas: ");
 	scanf("%d", &vagas);
 	if(vagas<0|| vagas>MAX_VAGAS)return NUM_INVALIDO;
 	lista[qtdDisciplina].vagas = vagas;
@@ -296,6 +311,9 @@ int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
 			for (int j = 0; j < qtdDisciplina; j++){
 				if (strcmp(codigo, lista[j].codigo)==0){
 					if(lista[j].alunosCad< lista[j].vagas){
+						if(aluno[i].disCad >= MAX_DISC) return MAX_DISC_CAD;
+						strcpy(aluno[i].disciplinas[aluno[i].disCad], codigo);
+						aluno[i].disCad++;
 						lista[j].alunos[lista[j].alunosCad] = aluno[i];
 						lista[j].alunosCad += 1;
 						achou = 1;
@@ -334,6 +352,14 @@ int excluirAlunoDisciplina(Disciplina lista[], Pessoa aluno[], int qtdDisciplina
 
 			for (int j=0; j < lista[i].alunosCad; j++) {
 				if (matricula == lista[i].alunos[j].matricula) {
+					for (int k=0; k<TAM_ALUNO; k++){
+						if (matricula == aluno[k].matricula){
+							for (int l=k; l<aluno[k].disCad; l++){
+								strcpy(aluno[k].disciplinas[l], aluno[k].disciplinas[l+1]);
+							}
+							aluno[k].disCad -=1;
+						}
+					}   
 					for (int k=j; k<lista[i].alunosCad-1; k++){
 						lista[i].alunos[k]=lista[i].alunos[k+1];
 					}   

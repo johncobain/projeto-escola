@@ -1,4 +1,5 @@
 #define TAM_CPF 12
+#define MAX_DISC 8
 
 typedef struct dma{
   int dia;
@@ -12,7 +13,8 @@ typedef struct dados_pessoa{
   char sexo;
   Data data_nascimento;
   char cpf[TAM_CPF];
-  
+  char disciplinas[MAX_DISC][7];
+  int disCad;
 } Pessoa; 
 
 int buscarPessoa(Pessoa lista[], int matricula);

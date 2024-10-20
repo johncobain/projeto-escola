@@ -9,3 +9,4 @@ int validarCodigo(char codigo[]);
 
 void error(char *str);
 void sucess(char *str);
+
