@@ -186,7 +186,7 @@ int menuRelPessoas(int eh_aluno){
 	printf("1. Listar\n");
 	printf("2. Listar por Sexo\n");
 	printf("3. Listar por Data de Nascimento\n");
-	if(eh_aluno)printf("4. Listar Alunos matriculados em menos de 3 disciplinas\n");
+	if(eh_aluno)printf("4. Matriculados em menos de 3 disciplinas\n");
 	printLine('-',50);
 	scanf("%d", &opcao);
 	return opcao;
