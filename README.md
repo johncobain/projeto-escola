@@ -47,7 +47,7 @@ cd projeto-escola
 Compile o programa
 
 ```bash
-gcc *.c -o escola.exe
+gcc projeto\*.c -o escola.exe
 ```
 
 Execute o programa
