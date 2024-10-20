@@ -29,7 +29,7 @@
         - Listar Professores ordenados por data de nascimento
         - ~~Lista de Professores matriculados em menos de 3 disciplinas~~
 
-    - Aniversariantes do mês
+    - ~~Aniversariantes do mês~~
 
     - Lista de pessoas (professor/aluno) a partir de uma string de busca. O usuário informa no mínimo três letras e deve ser listado todas as pessoas que contem essas três letras no nome 
     

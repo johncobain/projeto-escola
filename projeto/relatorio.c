@@ -20,6 +20,8 @@ void listarAlfa(Pessoa lista[], int qtdPessoa);
 void listarNascimento(Pessoa lista[], int qtdPessoa);
 void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno);
 
+void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor);
+
 int menuRelatorio(){
 	int opcao;
 	printf("\n");
@@ -57,7 +59,7 @@ int mainRelatorio(Disciplina listaDisciplina[], int qtdDisciplina, Pessoa listaP
 			}
 			case 3:{
 				system ("cls");
-				getDias(20,8,2005);
+				aniversariantes(listaAluno, listaProfessor, qtdAluno, qtdProfessor);
 				break;
 			}/*
 			case 4:{
@@ -242,4 +244,46 @@ void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	}else{
 		error("Numero Invalido");
 	}
+}
+
+void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
+
+	int esc;
+	int mes;
+	printf("Digite o mes: ");
+	scanf("%d", &mes);
+	fflush(stdin);
+	system("cls");
+	printf("\n");
+	printLine('-',45);
+	printf("#### Aniversariantes do Mes %d ####\n", mes);
+	printLine('-',45);
+	printf("\n");
+	printLine('-',45);
+	printf("#### Alunos: ####\n");
+	printLine('-',45);
+	for(int i = 0; i<qtdAluno; i++){
+		if(aluno[i].data_nascimento.mes==mes){
+			printf("\nNome: %s - Matricula: %d - Idade Atual: %d Anos\n", aluno[i].nome, aluno[i].matricula, 
+			getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365);
+		}
+	}
+	printf("\n");
+	printLine('-',45);
+	printf("\n");
+	printLine('-',45);
+	printf("#### Professores: ####\n");
+	printLine('-',45);
+	for(int i = 0; i<qtdProfessor; i++){
+		if(professor[i].data_nascimento.mes==mes){
+			printf("\nNome: %s - Matricula: %d - Idade Atual: %d Anos\n", professor[i].nome, professor[i].matricula, 
+			getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365);
+		}
+	}
+	printf("\n");
+	printLine('-',45);
+	printf("Pressione ENTER para voltar para o menu: ");
+	fflush(stdin);
+	scanf("%c", &esc);
+	system("cls");
 }

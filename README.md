@@ -24,7 +24,7 @@ Projeto realizado como trabalho para a matéria INF029(Laboratório de Programa�
         - Listar por Maximo de Disciplinas ✅
 
 
-    - Aniversariantes do mês 
+    - Aniversariantes do mês ✅
 
     - Lista de pessoas (professor/aluno) a partir de uma string de busca. O usuário informa no mínimo três letras e deve ser listado todas as pessoas que contem essas três letras no nome 
     

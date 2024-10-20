@@ -33,7 +33,7 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(aluno[1].cpf, "65309371028");
     aluno[1].sexo = 'M';
     aluno[1].data_nascimento.ano = 2006;
-    aluno[1].data_nascimento.mes = 6;
+    aluno[1].data_nascimento.mes = 10;
     aluno[1].data_nascimento.dia = 10;
     aluno[1].matricula = gerarMatriculaA();
     aluno[1].disCad = 3;
@@ -57,7 +57,7 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(aluno[3].cpf, "08120608062");
     aluno[3].sexo = 'F';
     aluno[3].data_nascimento.ano = 2003;
-    aluno[3].data_nascimento.mes = 3;
+    aluno[3].data_nascimento.mes = 8;
     aluno[3].data_nascimento.dia = 4;
     aluno[3].matricula = gerarMatriculaA();
     aluno[3].disCad = 5;
