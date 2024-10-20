@@ -18,7 +18,7 @@ int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno);
 void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno);
 void listarAlfa(Pessoa lista[], int qtdPessoa);
 void listarNascimento(Pessoa lista[], int qtdPessoa);
-void listarPDisciplina(Pessoa lista[], int qtdPessoa);
+void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno);
 
 int menuRelatorio(){
 	int opcao;
@@ -116,7 +116,7 @@ int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno){
 			}
 			case 1:{
 				system ("cls");
-				eh_aluno?listarAlunos(lista, qtdPessoa):listarProfessor(lista, qtdPessoa);;
+				eh_aluno?listarAlunos(lista, qtdPessoa):listarProfessor(lista, qtdPessoa);
 				break;
 			}
 			case 2:{
@@ -153,23 +153,12 @@ int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno){
 					case SUCESSO_CADASTRO: sucess("Aluno cadastrado na Disciplina com sucesso!");break;
 				}
 				break;
-			}
-			case 5:{
-				int retorno = excluirAlunoDisciplina(listaDisciplina, listaAluno, qtdDisciplina);
-				switch(retorno){
-					case ERRO_MATRICULA: 
-						system("cls");
-						error("Matricula ou Codigo Invalidos"); break;
-					case NAO_ENCONTRADO: 
-						system("cls");
-						error("Matricula ou Codigo Inexistentes"); break;
-					case LISTA_VAZIA: 
-						system("cls");
-						error("Lista da Disciplina vazia"); break;
-					case SUCESSO_EXCLUSAO: sucess("Aluno excluido na Disciplina com sucesso!");break;
-				}
-				break;
 			}*/
+			case 5:{
+				system("cls");
+				eh_aluno?listarPDisciplina(lista, qtdPessoa, 1):listarPDisciplina(lista, qtdPessoa, 0);
+				break;
+			}
 			default:error("Opcao invalida");
 		}
 	}
@@ -185,8 +174,9 @@ int menuRelPessoas(int eh_aluno){
 	printf("0. Voltar\n");
 	printf("1. Listar\n");
 	printf("2. Listar por Sexo\n");
-	printf("3. Listar por Data de Nascimento\n");
-	printf("4. Matriculados em menos de 3 disciplinas\n");
+	printf("3. Listar ordenado por Nome\n");
+	printf("4. Listar por Data de Nascimento\n");
+	printf("5. Listar por Maximo de Disciplinas\n");
 	printLine('-',45);
 	scanf("%d", &opcao);
 	return opcao;
@@ -228,4 +218,37 @@ void listarAlfa(Pessoa lista[], int qtdPessoa);
 
 void listarNascimento(Pessoa lista[], int qtdPessoa);
 
-void listarPDisciplina(Pessoa lista[], int qtdPessoa);
+void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
+	int disc;
+	int esc;
+	
+	printf("Digite a quantidade maxima de Disciplinas: ");
+	scanf("%d", &disc);
+	system("cls");
+	if(disc>0){
+		printf("\n");
+		printLine('-',45);
+		eh_aluno?printf("Alunos em no maximo %d Disciplinas\n", disc):printf("Professores em no maximo %d Disciplinas\n", disc);
+		printLine('-',45);
+		for(int i = 0; i<qtdPessoa; i++){
+			if(lista[i].disCad<=disc){
+				printf("\nNome: %s - Matricula: %d\nDisciplinas:", lista[i].nome, lista[i].matricula);
+				for(int j = 0; j<lista[i].disCad; j++){
+					if(j<lista[i].disCad-1){
+						printf(" %s,", lista[i].disciplinas[j]);
+					}else{
+						printf(" %s.", lista[i].disciplinas[j]);
+					}
+				}
+				printf("\n");
+			}
+		}
+		printLine('-',45);
+		printf("Pressione ENTER para voltar para o menu: ");
+		fflush(stdin);
+		scanf("%c", &esc);
+		system("cls");
+	}else{
+		error("Numero Invalido");
+	}
+}
