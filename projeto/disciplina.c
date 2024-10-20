@@ -188,7 +188,7 @@ int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisc
 	if(validarCodigo(lista[qtdDisciplina].codigo)==0) return ERRO_MATRICULA;
 
 	int semestre;
-	printf("Digite o Semestre: ");
+	printf("Digite o Semestre(AAAAS): ");
 	scanf("%d", &semestre);
 	if(semestre<10001||semestre>99999) return ERRO_DATA_INVALIDA;
 	if(semestre%10!=1&&semestre%10!=2) return ERRO_DATA_INVALIDA;
