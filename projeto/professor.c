@@ -171,9 +171,9 @@ void listarProfessor(Pessoa lista[], int qtdProfessor){
 		printf("Lista vazia.\n");
 		printLine('-',30);
 	}else{
-		printLine('-',50);
+		printLine('-',60);
 		printf("Lista de Professores\t|Tamanho: %d\n",qtdProfessor);
-    	printLine('-',50);
+    	printLine('-',60);
 		for (int i = 0; i < qtdProfessor; i++){
 			printf("Nome:               \t|%s\n",lista[i].nome);
 			printf("Sexo:               \t|%c\n",lista[i].sexo);
@@ -185,7 +185,7 @@ void listarProfessor(Pessoa lista[], int qtdProfessor){
 				printf("%s|", lista[i].disciplinas[j]);
 			}
 			printf("\n");
-			printLine('-',50);
+			printLine('-',60);
 		}     
 	}
 		printf("Pressione ENTER para voltar para o menu: ");

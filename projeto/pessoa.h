@@ -1,5 +1,5 @@
 #define TAM_CPF 12
-#define MAX_DISC 8
+#define MAX_DISC 10
 
 typedef struct dma{
   int dia;
