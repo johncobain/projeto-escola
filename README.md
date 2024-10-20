@@ -3,6 +3,11 @@
 
 Projeto realizado como trabalho para a matéria INF029(Laboratório de Programação), dada pelo professor Renato Novais.
 
+![projeto-escola](./projeto-escola.jpeg)
+## Linguagem Utilizada
+
+
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 
 ## Funcionalidades
 
@@ -25,11 +30,32 @@ Projeto realizado como trabalho para a matéria INF029(Laboratório de Programa�
     
     - Lista de Disciplinas, com nome do professor, que extrapolam 40 vagas.
 
+## Execute Localmente
 
-## Linguagem Utilizada
+Clone o projeto
 
+```bash
+git clone https://github.com/johncobain/projeto-escola.git
+```
 
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+Vá para o diretório do projeto
+
+```bash
+cd projeto-escola
+```
+
+Compile o programa
+
+```bash
+gcc *.c -o escola.exe
+```
+
+Execute o programa
+
+```bash
+escola.exe
+```
+
 
 ## Autores
 
