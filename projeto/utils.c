@@ -1,10 +1,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
+
 #include "utils.h"
 #include "pessoa.h"
 #include "disciplina.h"
 
+int getDias(int dia, int mes, int ano);
 // ===== Visual ===================================================
 
 void printLine(char s, int tam){
@@ -49,6 +52,8 @@ int validarData(int d, int m, int a){
     if (diasNoMes(m,a)==2 && d>29)
         return 0;
     if (diasNoMes(m,a)==2 && d == 29 && bissexto(a) == 0)
+        return 0;
+    if (getDias(d,m,a)<0)
         return 0;
     return 1;
 }
@@ -109,41 +114,18 @@ int validarCodigo(char codigo[7]){
     return 1;
 }
 
-/*
-int calcularIdade(int dn, int mn, int an)
-    {
-        int da, ma, aa, qtdMes= 0, qtdAno=0, qtdDias=0;
-
-         /*da= ca.dia_mes_atual();
-         ma= ca.mes_atual();
-         aa= ca.ano_atual();
-
-         while(mn<ma-1 || an<aa){
-            mn++;
-            qtdMes++;
-            if (qtdMes == 12) {
-                qtdMes = 0;
-                qtdAno ++;
-            }
-            if (mn == 12){
-                an++;
-                mn =0;
-            }
-         }
-         if (dn == da){
-            qtdMes++;
-            qtdDias=0;
-         }
-         else if (dn <da){
-            qtdMes++;
-            qtdDias=da-dn;
-
-         }
-         else {
-            qtdDias = diasNoMes(ma-1, aa)+ da-dn;
-         }
-         printf(qtdAno,"anos,",qtdMes,"meses e",qtdDias,"dia.\n");
-    }
-*/
-
 // ===== Utilidades ===================================================
+int getDias(int dia, int mes, int ano){
+
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    
+    int totDias = 0;
+    int aAno = tm.tm_year + 1900;
+    int aMes = tm.tm_mon + 1;
+    int aDia = tm.tm_mday;
+
+    totDias+= (aDia+(aMes*30)+(aAno*365))-(dia+(mes*30)+(ano*365));
+ 
+    return totDias;
+}

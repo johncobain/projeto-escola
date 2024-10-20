@@ -10,3 +10,4 @@ int validarCodigo(char codigo[]);
 void error(char *str);
 void sucess(char *str);
 
+int getDias(int dia, int mes, int ano);

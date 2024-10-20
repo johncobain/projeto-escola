@@ -54,21 +54,12 @@ int mainRelatorio(Disciplina listaDisciplina[], int qtdDisciplina, Pessoa listaP
 				system ("cls");
 				relPessoas(listaProfessor, qtdProfessor, 0);
 				break;
-			}/*
+			}
 			case 3:{
 				system ("cls");
-				int retorno = listarUmaDisciplina(listaDisciplina, qtdDisciplina);
-				switch(retorno){
-					case ERRO_MATRICULA: 
-						system("cls");
-						error("Codigo Invalidos"); break;
-					case NAO_ENCONTRADO: 
-						system("cls");
-						error("Codigo Inexistentes"); break;
-					case SUCESSO_CONSULTA:break;
-				}
+				getDias(20,8,2005);
 				break;
-			}
+			}/*
 			case 4:{
 				int retorno = inserirAluno(listaDisciplina, listaAluno, qtdDisciplina);
 				switch(retorno){
