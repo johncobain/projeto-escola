@@ -21,7 +21,7 @@ Projeto realizado como trabalho para a matéria INF029(Laboratório de Programa�
         - Listar por sexo (Masculino/Feminino) ✅
         - Listar ordenados por Nome
         - Listar ordenados por data de nascimento
-        - Lista de matriculados em menos de 3 disciplinas
+        - Listar por Maximo de Disciplinas ✅
 
 
     - Aniversariantes do mês 
