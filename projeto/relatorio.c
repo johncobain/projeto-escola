@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <time.h>
 
 #include "escola.h"
 #include "pessoa.h"
@@ -247,6 +248,8 @@ void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
 }
 
 void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
+	time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
 
 	int esc;
 	int mes;
@@ -255,33 +258,41 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 	fflush(stdin);
 	system("cls");
 	printf("\n");
-	printLine('-',45);
+	printLine('-',60);
 	printf("#### Aniversariantes do Mes %d ####\n", mes);
-	printLine('-',45);
+	printLine('-',60);
 	printf("\n");
-	printLine('-',45);
+	printLine('-',60);
 	printf("#### Alunos: ####\n");
-	printLine('-',45);
+	printLine('-',60);
 	for(int i = 0; i<qtdAluno; i++){
 		if(aluno[i].data_nascimento.mes==mes){
-			printf("\nNome: %s - Matricula: %d - Idade Atual: %d Anos\n", aluno[i].nome, aluno[i].matricula, 
-			getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365);
+			printf("\nNome: %s - Matricula: %d - ", aluno[i].nome, aluno[i].matricula);
+			if(mes<tm.tm_mon+1||(mes==tm.tm_mon+1&&aluno[i].data_nascimento.dia<=tm.tm_mday)){
+				printf("Fez %d Anos\n",getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365);
+			}else{
+				printf("Vai fazer %d Anos\n",(getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365)+1);
+			}
 		}
 	}
 	printf("\n");
-	printLine('-',45);
+	printLine('-',60);
 	printf("\n");
-	printLine('-',45);
+	printLine('-',60);
 	printf("#### Professores: ####\n");
-	printLine('-',45);
+	printLine('-',60);
 	for(int i = 0; i<qtdProfessor; i++){
 		if(professor[i].data_nascimento.mes==mes){
-			printf("\nNome: %s - Matricula: %d - Idade Atual: %d Anos\n", professor[i].nome, professor[i].matricula, 
-			getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365);
+			printf("\nNome: %s - Matricula: %d - ", professor[i].nome, professor[i].matricula);
+			if(mes<tm.tm_mon+1||(mes==tm.tm_mon+1&&professor[i].data_nascimento.dia<=tm.tm_mday)){
+				printf("Fez %d Anos\n",getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365);
+			}else{
+				printf("Vai fazer %d Anos\n",(getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365)+1);
+			}
 		}
 	}
 	printf("\n");
-	printLine('-',45);
+	printLine('-',60);
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);

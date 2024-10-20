@@ -95,8 +95,8 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(professor[2].cpf, "69003573000");
     professor[2].sexo = 'M';
     professor[2].data_nascimento.ano = 1985;
-    professor[2].data_nascimento.mes = 7;
-    professor[2].data_nascimento.dia = 11;
+    professor[2].data_nascimento.mes = 10;
+    professor[2].data_nascimento.dia = 20;
     professor[2].disCad = 1;
     strcpy(professor[2].disciplinas[0], "INF026");
     professor[2].matricula = gerarMatriculaP();
@@ -105,8 +105,8 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(professor[3].cpf, "43303498091");
     professor[3].sexo = 'F';
     professor[3].data_nascimento.ano = 1988;
-    professor[3].data_nascimento.mes = 1;
-    professor[3].data_nascimento.dia = 23;
+    professor[3].data_nascimento.mes = 10;
+    professor[3].data_nascimento.dia = 21;
     professor[3].disCad = 1;
     strcpy(professor[3].disciplinas[0], "INF031");
     professor[3].matricula = gerarMatriculaP();
@@ -115,7 +115,7 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(professor[4].cpf, "58754944090");
     professor[4].sexo = 'F';
     professor[4].data_nascimento.ano = 1990;
-    professor[4].data_nascimento.mes = 10;
+    professor[4].data_nascimento.mes = 11;
     professor[4].data_nascimento.dia = 4;
     professor[4].disCad = 1;
     strcpy(professor[4].disciplinas[0], "INF028");
