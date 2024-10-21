@@ -281,9 +281,9 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 		if(aluno[i].data_nascimento.mes==mes){
 			listarUmaP(aluno, i);
 			if(mes<tm.tm_mon+1||(mes==tm.tm_mon+1&&aluno[i].data_nascimento.dia<=tm.tm_mday)){
-				printf("Idade:\t\t\t|Fez %d Anos\n",getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365);
+				printf("Idade:\t\t\t\t|Fez %d Anos\n",getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365);
 			}else{
-				printf("Idade:\t\t\t|Vai fazer %d Anos\n",(getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365)+1);
+				printf("Idade:\t\t\t\t|Vai fazer %d Anos\n",(getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365)+1);
 			}
 			printLine('-', 60);
 		}
@@ -296,9 +296,9 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 		if(professor[i].data_nascimento.mes==mes){
 			listarUmaP(professor, i);
 			if(mes<tm.tm_mon+1||(mes==tm.tm_mon+1&&professor[i].data_nascimento.dia<=tm.tm_mday)){
-				printf("Idade:\t\t\t|Fez %d Anos\n",getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365);
+				printf("Idade:\t\t\t\t|Fez %d Anos\n",getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365);
 			}else{
-				printf("Idade:\t\t\t|Vai fazer %d Anos\n",(getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365)+1);
+				printf("Idade:\t\t\t\t|Vai fazer %d Anos\n",(getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365)+1);
 			}
 			printLine('-', 60);
 		}
