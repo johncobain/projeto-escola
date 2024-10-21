@@ -30,10 +30,13 @@ int menuGeral(){
 }
 
 // primeiramente eu tenho que entender o que foi que eu escrevi aqui
+
+// ok, pelo visto c tem muito problema com contabilidade windows/linux
+// então se voce ver algum getchar() ou fflush(stdin) jogado por ai, eh culpa do C
 int main() {
-	system ("cls||clear");
-	Pessoa listaAluno[TAM_P];/*Criando a variável aluno que será do tipo struct Ficha_Aluno */
-	int qtdAluno = 0;// inicio da lista de alunos
+	system ("cls||clear");//pq?
+	Pessoa listaAluno[TAM_P];
+	int qtdAluno = 0;
 	
 	Pessoa listaProfessor[TAM_P];
 	int qtdProfessor = 0;
@@ -55,8 +58,6 @@ int main() {
 				getchar();
 				scanf("%c", &esc);
 				system("cls||clear");
-	        	//qtdAluno = finalizarEscola(listaAluno, qtdAluno);
-	        	//qtdProfessor = finalizarEscola(listaProfessor, qtdProfessor);
 				return 0;
 				break;
 			}		

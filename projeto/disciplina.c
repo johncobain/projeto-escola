@@ -282,7 +282,7 @@ int listarUmaDisciplina(Disciplina lista[], int qtdDisciplina){
   		}
   	}
   	if (!achou) return NAO_ENCONTRADO;
-	getchar();
+	getchar();//MEU DEUS EU NÃO SEI PQ O C É TÃO HORRIVEL COM O BUFFER
 	printf("Pressione ENTER para voltar para o menu: ");
 	scanf("%c", &esc);
 	system("cls||clear");

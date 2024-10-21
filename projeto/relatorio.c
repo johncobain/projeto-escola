@@ -378,3 +378,4 @@ void discMinVagas(Disciplina disciplina[],int qtdDisciplina){
 	scanf("%c", &esc);
 	system("cls||clear");
 }
+//ESPERO NÃO PRECISAR MAIS ENCOSTAR NISSO
