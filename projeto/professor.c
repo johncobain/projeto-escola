@@ -136,12 +136,11 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
 
 	int dia, mes, ano;
 	printf("Digite o dia de nascimento (dd): ");
-	scanf("%d", &dia);
+	scanf(" %d", &dia);
 	printf("Digite o mes de nascimento (mm): ");
-	scanf("%d", &mes);
+	scanf(" %d", &mes);
 	printf("Digite o ano de nascimento (aaaa): ");
-	scanf("%d", &ano);
-	fflush(stdin);
+	scanf(" %d", &ano);
 	if(validarData(dia,mes, ano)){
 		lista[qtdProfessor].data_nascimento.dia = dia;
 		lista[qtdProfessor].data_nascimento.mes = mes;
@@ -150,6 +149,7 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
 
 
 	printf("Digite o CPF(apenas numeros): ");
+	fflush(stdin);
 	fgets(lista[qtdProfessor].cpf, TAM_CPF, stdin);
 	fflush(stdin);
 	if(validarCpf(lista[qtdProfessor].cpf)==0) return ERRO_CPF_INVALIDO;
