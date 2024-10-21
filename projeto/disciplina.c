@@ -281,12 +281,12 @@ int listarUmaDisciplina(Disciplina lista[], int qtdDisciplina){
       		break;
   		}
   	}
+  	if (!achou) return NAO_ENCONTRADO;
 	getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
 	scanf("%c", &esc);
 	system("cls||clear");
-  	if (achou) return SUCESSO_CONSULTA;
-	return NAO_ENCONTRADO;
+	return SUCESSO_CONSULTA;
 }
 
 int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
