@@ -346,7 +346,7 @@ int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
 			printLine('-', 60);
         }
     }
-	getchar();
+	// getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
 	scanf("%c", &esc);
 	system("cls||clear");
