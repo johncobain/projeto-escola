@@ -95,7 +95,7 @@ int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno){
 			}
 			case 5:{
 				system("cls");
-				eh_aluno?listarPDisciplina(lista, qtdPessoa, 1):listarPDisciplina(lista, qtdPessoa, 0);
+				listarPDisciplina(lista, qtdPessoa, eh_aluno);
 				break;
 			}
 			default:error("Opcao invalida");
