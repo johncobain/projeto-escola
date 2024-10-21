@@ -241,23 +241,15 @@ void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	system("cls");
 	if(disc>0){
 		printf("\n");
-		printLine('-',45);
+		printLine('-',60);
 		eh_aluno?printf("Alunos em no maximo %d Disciplinas\n", disc):printf("Professores em no maximo %d Disciplinas\n", disc);
-		printLine('-',45);
+		printLine('-',60);
 		for(int i = 0; i<qtdPessoa; i++){
 			if(lista[i].disCad<=disc){
-				printf("\nNome: %s - Matricula: %d\nDisciplinas:", lista[i].nome, lista[i].matricula);
-				for(int j = 0; j<lista[i].disCad; j++){
-					if(j<lista[i].disCad-1){
-						printf(" %s,", lista[i].disciplinas[j]);
-					}else{
-						printf(" %s.", lista[i].disciplinas[j]);
-					}
-				}
-				printf("\n");
+				listarUmaP(lista, i);
+				printLine('-', 60);
 			}
 		}
-		printLine('-',45);
 		printf("Pressione ENTER para voltar para o menu: ");
 		fflush(stdin);
 		scanf("%c", &esc);
@@ -287,32 +279,30 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 	printLine('-',60);
 	for(int i = 0; i<qtdAluno; i++){
 		if(aluno[i].data_nascimento.mes==mes){
-			printf("\nNome: %s - Matricula: %d - ", aluno[i].nome, aluno[i].matricula);
+			listarUmaP(aluno, i);
 			if(mes<tm.tm_mon+1||(mes==tm.tm_mon+1&&aluno[i].data_nascimento.dia<=tm.tm_mday)){
-				printf("Fez %d Anos\n",getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365);
+				printf("Idade:\t\t\t|Fez %d Anos\n",getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365);
 			}else{
-				printf("Vai fazer %d Anos\n",(getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365)+1);
+				printf("Idade:\t\t\t|Vai fazer %d Anos\n",(getDias(aluno[i].data_nascimento.dia,aluno[i].data_nascimento.mes,aluno[i].data_nascimento.ano)/365)+1);
 			}
+			printLine('-', 60);
 		}
 	}
-	printf("\n");
-	printLine('-',60);
 	printf("\n");
 	printLine('-',60);
 	printf("#### Professores: ####\n");
 	printLine('-',60);
 	for(int i = 0; i<qtdProfessor; i++){
 		if(professor[i].data_nascimento.mes==mes){
-			printf("\nNome: %s - Matricula: %d - ", professor[i].nome, professor[i].matricula);
+			listarUmaP(professor, i);
 			if(mes<tm.tm_mon+1||(mes==tm.tm_mon+1&&professor[i].data_nascimento.dia<=tm.tm_mday)){
-				printf("Fez %d Anos\n",getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365);
+				printf("Idade:\t\t\t|Fez %d Anos\n",getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365);
 			}else{
-				printf("Vai fazer %d Anos\n",(getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365)+1);
+				printf("Idade:\t\t\t|Vai fazer %d Anos\n",(getDias(professor[i].data_nascimento.dia,professor[i].data_nascimento.mes,professor[i].data_nascimento.ano)/365)+1);
 			}
+			printLine('-', 60);
 		}
 	}
-	printf("\n");
-	printLine('-',60);
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);

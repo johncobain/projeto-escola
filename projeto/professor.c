@@ -175,16 +175,7 @@ void listarProfessor(Pessoa lista[], int qtdProfessor){
 		printf("Lista de Professores\t|Tamanho: %d\n",qtdProfessor);
     	printLine('-',60);
 		for (int i = 0; i < qtdProfessor; i++){
-			printf("Nome:               \t|%s\n",lista[i].nome);
-			printf("Sexo:               \t|%c\n",lista[i].sexo);
-			printf("Data de Nascimento: \t|%02d/%02d/%d\n",lista[i].data_nascimento.dia,lista[i].data_nascimento.mes,lista[i].data_nascimento.ano);
-			printf("Cpf:                \t|%s\n",lista[i].cpf);
-			printf("Matricula:          \t|%d\n",lista[i].matricula);
-			printf("Disciplinas:        \t|");
-			for(int j = 0; j< lista[i].disCad; j++){
-				printf("%s|", lista[i].disciplinas[j]);
-			}
-			printf("\n");
+			listarUmaP(lista, i);
 			printLine('-',60);
 		}     
 	}
