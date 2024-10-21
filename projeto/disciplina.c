@@ -39,7 +39,8 @@ int menuDisciplina(){
 	return opcao;
 }
 
-int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa listaAluno[], int qtdDisciplina) { 
+int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa listaAluno[], int qtdDisciplina) {
+	setbuf(stdin, NULL);
 	while(1){		
 		switch(menuDisciplina()){
 			case 0: {

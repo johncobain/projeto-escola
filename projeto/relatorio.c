@@ -28,6 +28,7 @@ void discMinVagas(Disciplina disciplina[],int qtdDisciplina);
  
 
 int mainRelatorio(Disciplina listaDisciplina[], int qtdDisciplina, Pessoa listaProfessor[], int qtdProfessor, Pessoa listaAluno[], int qtdAluno){
+	setbuf(stdin, NULL);
     while(1){		
 		switch(menuRelatorio()){
 			case 0: {
