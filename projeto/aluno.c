@@ -51,16 +51,16 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				int retorno = cadastrarAluno(listaAluno, qtdAluno);
 				switch(retorno){
 					case LISTA_CHEIA: 
-						system("cls");
+						system("cls||clear");
 						error("Lista de alunos Cheia"); break;
 					case ERRO_CADASTRO_SEXO: 
-						system("cls");
+						system("cls||clear");
 						error("Sexo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
-						system("cls");
+						system("cls||clear");
 						error("Data invalida"); break;
 					case ERRO_CPF_INVALIDO: 
-						system("cls");
+						system("cls||clear");
 						error("Cpf invalido"); break;
 					case SUCESSO_CADASTRO: sucess("Aluno cadastrado com sucesso!"); qtdAluno++; break;
 				}
@@ -76,10 +76,10 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				int retorno = excluirAluno(listaAluno, qtdAluno);
 				switch(retorno){
 					case ERRO_MATRICULA: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula Invalida"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula Inexistente"); break;
 					case SUCESSO_EXCLUSAO: sucess("Aluno excluido com sucesso"); qtdAluno--; break;
 				}
@@ -90,16 +90,16 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				int retorno = atualizarAluno(listaAluno, qtdAluno);
 				switch(retorno){
 					case ERRO_CADASTRO_SEXO: 
-						system("cls");
+						system("cls||clear");
 						error("Sexo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
-						system("cls");
+						system("cls||clear");
 						error("Data invalida"); break;
 					case ERRO_CPF_INVALIDO: 
-						system("cls");
+						system("cls||clear");
 						error("Cpf invalido"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula Inexistente"); break;
 					case SUCESSO_CADASTRO: sucess("Aluno atualizado com sucesso!");break;
 				}
@@ -183,7 +183,7 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 	printf("Pressione ENTER para voltar para o menu: ");
 	getchar();
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
 }
 
 
