@@ -18,12 +18,12 @@ int menuRelPessoas(int eh_aluno);
 int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno);
 
 void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno);
-void listarAlfa(Pessoa lista[], int qtdPessoa);
-void listarNascimento(Pessoa lista[], int qtdPessoa);
+void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno);
+void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno);
 void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno);
 
 void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor);
-
+void buscarP(Pessoa aluno[], Pessoa Professor[], int qtdAluno, int qtdProfessor);
 void discMinVagas(Disciplina disciplina[],int qtdDisciplina);
  
 
@@ -49,23 +49,12 @@ int mainRelatorio(Disciplina listaDisciplina[], int qtdDisciplina, Pessoa listaP
 				system ("cls");
 				aniversariantes(listaAluno, listaProfessor, qtdAluno, qtdProfessor);
 				break;
-			}/*
+			}
 			case 4:{
-				int retorno = inserirAluno(listaDisciplina, listaAluno, qtdDisciplina);
-				switch(retorno){
-					case ERRO_MATRICULA: 
-						system("cls");
-						error("Matricula ou Codigo Invalidos"); break;
-					case NAO_ENCONTRADO: 
-						system("cls");
-						error("Matricula ou Codigo Inexistentes"); break;
-					case LISTA_CHEIA: 
-						system("cls");
-						error("Lista da Disciplina cheia"); break;
-					case SUCESSO_CADASTRO: sucess("Aluno cadastrado na Disciplina com sucesso!");break;
-				}
+				system("cls");
+				buscarP(listaAluno, listaProfessor, qtdAluno, qtdProfessor);
 				break;
-			}*/
+			}
 			case 5:{
 				system("cls");
 				discMinVagas(listaDisciplina,qtdDisciplina);
@@ -91,39 +80,19 @@ int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno){
 			}
 			case 2:{
 				system ("cls");
-				eh_aluno?listarPSexo(lista, qtdPessoa, 1):listarPSexo(lista, qtdPessoa, 0);
+				listarPSexo(lista, qtdPessoa, eh_aluno);
 				break;
-			}/*
+			}
 			case 3:{
 				system ("cls");
-				int retorno = listarUmaDisciplina(listaDisciplina, qtdDisciplina);
-				switch(retorno){
-					case ERRO_MATRICULA: 
-						system("cls");
-						error("Codigo Invalidos"); break;
-					case NAO_ENCONTRADO: 
-						system("cls");
-						error("Codigo Inexistentes"); break;
-					case SUCESSO_CONSULTA:break;
-				}
+				listarAlfa(lista, qtdPessoa, eh_aluno);
 				break;
 			}
 			case 4:{
-				int retorno = inserirAluno(listaDisciplina, listaAluno, qtdDisciplina);
-				switch(retorno){
-					case ERRO_MATRICULA: 
-						system("cls");
-						error("Matricula ou Codigo Invalidos"); break;
-					case NAO_ENCONTRADO: 
-						system("cls");
-						error("Matricula ou Codigo Inexistentes"); break;
-					case LISTA_CHEIA: 
-						system("cls");
-						error("Lista da Disciplina cheia"); break;
-					case SUCESSO_CADASTRO: sucess("Aluno cadastrado na Disciplina com sucesso!");break;
-				}
+				system ("cls");
+				listarNascimento(lista, qtdPessoa, eh_aluno);
 				break;
-			}*/
+			}
 			case 5:{
 				system("cls");
 				eh_aluno?listarPDisciplina(lista, qtdPessoa, 1):listarPDisciplina(lista, qtdPessoa, 0);
@@ -200,9 +169,13 @@ void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	system("cls");
 }
 
-void listarAlfa(Pessoa lista[], int qtdPessoa);
+void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
 
-void listarNascimento(Pessoa lista[], int qtdPessoa);
+}
+
+void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno){
+
+}
 
 void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	int disc;
@@ -291,6 +264,9 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 	system("cls");
 }
 
+void buscarP(Pessoa aluno[], Pessoa Professor[], int qtdAluno, int qtdProfessor){
+
+}
 
 void discMinVagas(Disciplina disciplina[],int qtdDisciplina){
 	int esc;

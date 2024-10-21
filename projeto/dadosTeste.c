@@ -91,7 +91,7 @@ void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]){
     strcpy(professor[1].disciplinas[1], "INF006");
     professor[1].matricula = gerarMatriculaP();
 
-    strcpy(professor[2].nome, "AC");
+    strcpy(professor[2].nome, "Antonio Carlos");
     strcpy(professor[2].cpf, "69003573000");
     professor[2].sexo = 'M';
     professor[2].data_nascimento.ano = 1985;
