@@ -281,6 +281,7 @@ int listarUmaDisciplina(Disciplina lista[], int qtdDisciplina){
       		break;
   		}
   	}
+	getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
 	scanf("%c", &esc);
 	system("cls||clear");
