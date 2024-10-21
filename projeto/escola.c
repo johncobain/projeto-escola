@@ -32,10 +32,10 @@ int menuGeral(){
 // primeiramente eu tenho que entender o que foi que eu escrevi aqui
 int main() {
 	system ("cls");
-	Pessoa listaAluno[TAM_ALUNO];/*Criando a variável aluno que será do tipo struct Ficha_Aluno */
+	Pessoa listaAluno[TAM_P];/*Criando a variável aluno que será do tipo struct Ficha_Aluno */
 	int qtdAluno = 0;// inicio da lista de alunos
 	
-	Pessoa listaProfessor[TAM_PROFESSOR];
+	Pessoa listaProfessor[TAM_P];
 	int qtdProfessor = 0;
 
 	Disciplina listaDisciplina[TAM_DISC];

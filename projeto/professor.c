@@ -114,7 +114,7 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
     printLine('-',30);
     printf("Cadastrando professor\n");
     printLine('-',30);
-    if(qtdProfessor >= TAM_PROFESSOR) return LISTA_CHEIA;
+    if(qtdProfessor >= TAM_P) return LISTA_CHEIA;
 
 	getchar();
 	printf("\nDigite o nome: ");
@@ -154,7 +154,7 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
 	fflush(stdin);
 	if(validarCpf(lista[qtdProfessor].cpf)==0) return ERRO_CPF_INVALIDO;
 
-	if(lista[qtdProfessor].matricula<=2009000||lista[qtdProfessor].matricula>2009000+TAM_PROFESSOR){
+	if(lista[qtdProfessor].matricula<=2009000||lista[qtdProfessor].matricula>2009000+TAM_P){
 		lista[qtdProfessor].matricula = gerarMatriculaP();
 		lista[qtdProfessor].disCad = 0;
 	}

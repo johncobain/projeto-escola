@@ -169,8 +169,41 @@ void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	system("cls");
 }
 
-void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
+int trocar_pessoas(Pessoa *a, Pessoa *b) {
+    Pessoa temp = *a;
+	*a = *b;
+	*b = temp;
+}
 
+
+void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
+	int esc;
+	Pessoa listaOrdenada[TAM_P];
+	for (int i = 0; i < qtdPessoa; i++) {
+        listaOrdenada[i] = lista[i];
+    }
+
+	for(int i = 0; i < qtdPessoa - 1; i++){
+		for(int j = 0; j < qtdPessoa - i - 1; j++){
+			if(strcmp(listaOrdenada[j].nome, listaOrdenada[j+1].nome)> 0){
+				trocar_pessoas(&listaOrdenada[j], &listaOrdenada[j+1]);
+			}
+		}
+	}
+
+	printf("\n");
+	printLine('-',60);
+	eh_aluno?printf("Alunos ordenados alfabeticamente\n"):printf("Professores ordenados alfabeticamente\n");
+	printLine('-',60);
+
+	for (int i = 0; i < qtdPessoa; i++) {
+        listarUmaP(listaOrdenada, i);
+		printLine('-', 60);
+    }
+	printf("Pressione ENTER para voltar para o menu: ");
+	fflush(stdin);
+	scanf("%c", &esc);
+	system("cls");
 }
 
 void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno){

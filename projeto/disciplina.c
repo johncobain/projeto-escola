@@ -297,7 +297,7 @@ int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
 	scanf("%d", &matricula);
 	if(matricula<0) return ERRO_MATRICULA;
 
-	for (int i=0; i < TAM_ALUNO; i++) {
+	for (int i=0; i < TAM_P; i++) {
 		if (matricula == aluno[i].matricula) {
 			fflush(stdin);
 			printf("Digite o codigo da disciplina a ser pesquisada: ");
@@ -352,7 +352,7 @@ int excluirAlunoDisciplina(Disciplina lista[], Pessoa aluno[], int qtdDisciplina
 
 			for (int j=0; j < lista[i].alunosCad; j++) {
 				if (matricula == lista[i].alunos[j].matricula) {
-					for (int k=0; k<TAM_ALUNO; k++){
+					for (int k=0; k<TAM_P; k++){
 						if (matricula == aluno[k].matricula){
 							for (int l=k; l<aluno[k].disCad; l++){
 								strcpy(aluno[k].disciplinas[l], aluno[k].disciplinas[l+1]);
