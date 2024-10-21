@@ -40,7 +40,6 @@ int menuDisciplina(){
 }
 
 int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa listaAluno[], int qtdDisciplina) {
-	setbuf(stdin, NULL);
 	while(1){		
 		switch(menuDisciplina()){
 			case 0: {
@@ -257,7 +256,7 @@ int listarUmaDisciplina(Disciplina lista[], int qtdDisciplina){
 	int esc;
 	char codigo[7];
 	int achou = 0;
-	fflush(stdin);
+	getchar();
 	printf("Digite o codigo da disciplina a ser listada: ");
   	fgets(codigo, 7, stdin);
 	fflush(stdin);
@@ -294,13 +293,14 @@ int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
 	int matricula;
 	char codigo[7];
 	int achou;
+	getchar();
 	printf("Digite a matricula do aluno a ser inserido: ");
 	scanf("%d", &matricula);
 	if(matricula<0) return ERRO_MATRICULA;
 
 	for (int i=0; i < TAM_P; i++) {
 		if (matricula == aluno[i].matricula) {
-			fflush(stdin);
+			getchar();
 			printf("Digite o codigo da disciplina a ser pesquisada: ");
 			fgets(codigo, 7, stdin);
 			fflush(stdin);
@@ -335,8 +335,8 @@ int excluirAlunoDisciplina(Disciplina lista[], Pessoa aluno[], int qtdDisciplina
 	int matricula;
 	int achou;
 
-	fflush(stdin);
-	printf("Digite o codigo da disciplina a ser listada: ");
+	getchar();
+	printf("Digite o codigo da disciplina a ser buscada: ");
   	fgets(codigo, 7, stdin);
 	fflush(stdin);
 
@@ -380,8 +380,8 @@ int excluirDisciplina(Disciplina lista[], int qtdDisciplina){
     system ("cls||clear");
 	char codigo[7];
 	int achou = 0;
-	fflush(stdin);
-	printf("Digite o codigo da disciplina a ser excluido:");
+	getchar();
+	printf("Digite o codigo da disciplina a ser excluida:");
   	fgets(codigo, 7, stdin);
 	fflush(stdin);
 
@@ -405,7 +405,7 @@ int excluirDisciplina(Disciplina lista[], int qtdDisciplina){
 int atualizarDisciplina(Disciplina lista[],Pessoa listaProfessor[], int qtdDisciplina) {
   	system ("cls||clear");
 	char codigo[7];
-	fflush(stdin);
+	getchar();
 	printf("Digite o codigo da Disciplina a ser atualizada: ");
   	fgets(codigo, 7, stdin);
 	fflush(stdin);

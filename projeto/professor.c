@@ -38,7 +38,6 @@ int menuProfessor(){
 }
 
 int mainProfessor(Pessoa listaProfessor[], int qtdProfessor) { 
-	setbuf(stdin, NULL);
 	while(1){
 		switch(menuProfessor()){
 			case 0:{

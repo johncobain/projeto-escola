@@ -39,7 +39,6 @@ int menuAluno(){
 }
 
 int mainAluno(Pessoa listaAluno[], int qtdAluno) { 
-	setbuf(stdin, NULL);
  	while(1){
 		switch(menuAluno()){
 			case 0: {
