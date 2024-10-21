@@ -4,7 +4,7 @@
 #include "aluno.h"
 // #include "professor.h"
 
-#define TAM_DISC 8
+#define TAM_DISC 32
 #define MAX_VAGAS 64
 
 typedef struct dados_disciplina{

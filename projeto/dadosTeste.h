@@ -1,2 +1,2 @@
 
-void getTeste(Pessoa aluno[], Pessoa professor[], Disciplina disciplina[]);
+void getTeste(Pessoa aluno[], int *qtdAluno, Pessoa professor[], int *qtdProfessor, Disciplina disciplina[], int *qtdDisciplina);

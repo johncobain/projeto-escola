@@ -82,10 +82,10 @@ int main() {
 			}
 			case 5:{
 				system ("cls");
-				getTeste(listaAluno, listaProfessor, listaDisciplina);
-				qtdAluno = 4;
-				qtdProfessor = 5;
-				qtdDisciplina = 7;
+				getTeste(listaAluno, &qtdAluno, listaProfessor, &qtdProfessor, listaDisciplina, &qtdDisciplina);
+				// qtdAluno = 4;
+				// qtdProfessor = 5;
+				// qtdDisciplina = 7;
 				break;
 			}
 			default:{error("Opcao invalida");}    
