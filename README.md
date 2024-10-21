@@ -3,7 +3,7 @@
 
 Projeto realizado como trabalho para a matéria INF029(Laboratório de Programação), dada pelo professor Renato Novais.
 
-![projeto-escola](./projeto-escola.jpeg)
+![projeto-escola](./projeto-escola.jpg)
 ## Linguagem Utilizada
 
 
