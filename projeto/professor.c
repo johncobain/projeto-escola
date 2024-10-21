@@ -150,7 +150,7 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
 
 
 	printf("Digite o CPF(apenas numeros): ");
-	getchar();
+	// getchar();
 	fgets(lista[qtdProfessor].cpf, TAM_CPF, stdin);
 	fflush(stdin);
 	if(validarCpf(lista[qtdProfessor].cpf)==0) return ERRO_CPF_INVALIDO;

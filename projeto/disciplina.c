@@ -171,7 +171,7 @@ int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisc
 	printf("Cadastrando Disciplina\n");
 	printLine('-',30);
     if(qtdDisciplina >= TAM_DISC) return LISTA_CHEIA;
-	fflush(stdin);
+	getchar();
 	printf("\nDigite o nome da Disciplina: ");
 	fgets(lista[qtdDisciplina].nome,49,stdin);
 	fflush(stdin);

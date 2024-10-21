@@ -31,6 +31,7 @@ int menuGeral(){
 
 // primeiramente eu tenho que entender o que foi que eu escrevi aqui
 int main() {
+	setbuf(stdin, NULL);
 	system ("cls||clear");
 	Pessoa listaAluno[TAM_P];/*Criando a variável aluno que será do tipo struct Ficha_Aluno */
 	int qtdAluno = 0;// inicio da lista de alunos
@@ -83,9 +84,6 @@ int main() {
 			case 5:{
 				system ("cls||clear");
 				getTeste(listaAluno, &qtdAluno, listaProfessor, &qtdProfessor, listaDisciplina, &qtdDisciplina);
-				// qtdAluno = 4;
-				// qtdProfessor = 5;
-				// qtdDisciplina = 7;
 				break;
 			}
 			default:{error("Opcao invalida");}    
