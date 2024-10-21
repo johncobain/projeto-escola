@@ -55,7 +55,7 @@ int main() {
 				printf("Pressione ENTER para encerrar: ");
 				getchar();
 				scanf("%c", &esc);
-				system("cls");
+				system("cls||clear");
 	        	//qtdAluno = finalizarEscola(listaAluno, qtdAluno);
 	        	//qtdProfessor = finalizarEscola(listaProfessor, qtdProfessor);
 				return 0;
