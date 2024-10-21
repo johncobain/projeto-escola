@@ -147,11 +147,10 @@ int cadastrarAluno(Pessoa lista[], int qtdAluno){
 		lista[qtdAluno].data_nascimento.mes = mes;
 		lista[qtdAluno].data_nascimento.ano = ano;
 	}else return ERRO_DATA_INVALIDA;
-	fflush(stdin);
 
 
+	getchar();
 	printf("Digite o CPF(apenas numeros): ");
-	// getchar();
 	fgets(lista[qtdAluno].cpf, TAM_CPF, stdin);
 	fflush(stdin);
 	if(validarCpf(lista[qtdAluno].cpf)==0) return ERRO_CPF_INVALIDO;
