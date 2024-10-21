@@ -140,29 +140,25 @@ int menuRelPessoas(int eh_aluno){
 void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	int esc;
 	printf("\n");
-	printLine('-',45);
+	printLine('-',60);
 	eh_aluno?printf("#### Alunos do Sexo Masculino ####\n"):printf("#### Professores do Sexo Masculino ####\n");
-	printLine('-',45);
+	printLine('-',60);
 	for(int i = 0; i< qtdPessoa; i++){
 		if(lista[i].sexo=='M'){
-			printf("\n");
-			eh_aluno?printf("Aluno: "): printf("Professor: ");
-			printf("%s - Matricula: %d\n", lista[i].nome, lista[i].matricula);
-			printf("\n");
+			listarUmaP(lista, i);
+			printLine('-', 60);
 		}
 	}
-	printLine('-',45);
+	printLine('-',60);
 	eh_aluno?printf("#### Alunas do Sexo Feminino ####\n"):printf("#### Professoras do Sexo Feminino ####\n");
-	printLine('-',45);
+	printLine('-',60);
 	for(int i = 0; i< qtdPessoa; i++){
 		if(lista[i].sexo=='F'){
-			printf("\n");
-			eh_aluno?printf("Aluna: "): printf("Professora: ");
-			printf("%s - Matricula: %d\n", lista[i].nome, lista[i].matricula);
-			printf("\n");
+			listarUmaP(lista, i);
+			printLine('-', 60);
 		}
 	}
-	printLine('-',45);
+	printLine('-',60);
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);
@@ -174,7 +170,6 @@ int trocar_pessoas(Pessoa *a, Pessoa *b) {
 	*a = *b;
 	*b = temp;
 }
-
 
 void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	int esc;
@@ -207,7 +202,34 @@ void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
 }
 
 void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno){
+	int esc;
+	Pessoa listaOrdenada[TAM_P];
+	for (int i = 0; i < qtdPessoa; i++) {
+        listaOrdenada[i] = lista[i];
+    }
 
+	for(int i = 0; i < qtdPessoa - 1; i++){
+		for(int j = 0; j < qtdPessoa - i - 1; j++){
+			if(getDias(listaOrdenada[j].data_nascimento.dia,listaOrdenada[j].data_nascimento.mes,listaOrdenada[j].data_nascimento.ano)<
+			getDias(listaOrdenada[j+1].data_nascimento.dia,listaOrdenada[j+1].data_nascimento.mes,listaOrdenada[j+1].data_nascimento.ano)){
+				trocar_pessoas(&listaOrdenada[j], &listaOrdenada[j+1]);
+			}
+		}
+	}
+
+	printf("\n");
+	printLine('-',60);
+	eh_aluno?printf("Alunos ordenados por Data de Nascimento\n"):printf("Professores ordenados por Data de Nascimento\n");
+	printLine('-',60);
+
+	for (int i = 0; i < qtdPessoa; i++) {
+        listarUmaP(listaOrdenada, i);
+		printLine('-', 60);
+    }
+	printf("Pressione ENTER para voltar para o menu: ");
+	fflush(stdin);
+	scanf("%c", &esc);
+	system("cls");
 }
 
 void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
