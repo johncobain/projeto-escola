@@ -42,12 +42,12 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
  	while(1){
 		switch(menuAluno()){
 			case 0: {
-				system ("cls");
+				system ("cls||clear");
 				return qtdAluno;
 				break;
 			}
 			case 1:{
-				system ("cls");
+				system ("cls||clear");
 				int retorno = cadastrarAluno(listaAluno, qtdAluno);
 				switch(retorno){
 					case LISTA_CHEIA: 
@@ -67,12 +67,12 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				break;
 			}
 			case 2:{
-				system ("cls");
+				system ("cls||clear");
 				listarAlunos(listaAluno, qtdAluno);
 				break;
 			}
 			case 3:{
-				system ("cls");
+				system ("cls||clear");
 				int retorno = excluirAluno(listaAluno, qtdAluno);
 				switch(retorno){
 					case ERRO_MATRICULA: 
@@ -86,7 +86,7 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 				break; 
 			}
 			case 4: {
-				system ("cls");
+				system ("cls||clear");
 				int retorno = atualizarAluno(listaAluno, qtdAluno);
 				switch(retorno){
 					case ERRO_CADASTRO_SEXO: 
@@ -110,7 +110,7 @@ int mainAluno(Pessoa listaAluno[], int qtdAluno) {
 }
 
 int cadastrarAluno(Pessoa lista[], int qtdAluno){
-    system ("cls");
+    system ("cls||clear");
     printLine('-',30);
     printf("Cadastrando aluno\n");
     printLine('-',30);
@@ -165,7 +165,7 @@ int cadastrarAluno(Pessoa lista[], int qtdAluno){
 
 void listarAlunos(Pessoa lista[], int qtdAluno){
 	char esc;
-    system ("cls");
+    system ("cls||clear");
 	printf("\n");
 	if(qtdAluno==0){
     	printLine('-',30);
@@ -188,7 +188,7 @@ void listarAlunos(Pessoa lista[], int qtdAluno){
 
 
 int excluirAluno(Pessoa lista[], int qtdAluno){
-    system ("cls");
+    system ("cls||clear");
 	int matricula, achou = 0;
  
 	printf("Digite a matricula do aluno a ser excluido:");
@@ -209,7 +209,7 @@ int excluirAluno(Pessoa lista[], int qtdAluno){
 }
 
 int atualizarAluno(Pessoa lista[], int qtdAluno){
-    system ("cls");
+    system ("cls||clear");
 	int matricula, achou = 0;
 
 	printf("Digite a matricula do aluno a ser atualizado: ");

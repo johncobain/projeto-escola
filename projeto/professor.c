@@ -42,64 +42,64 @@ int mainProfessor(Pessoa listaProfessor[], int qtdProfessor) {
 	while(1){
 		switch(menuProfessor()){
 			case 0:{
-				system ("cls");
+				system ("cls||clear");
 				return qtdProfessor;
 				break;
 			}
 			case 1:{
-				system ("cls");
+				system ("cls||clear");
 				int retorno = cadastrarProfessor(listaProfessor, qtdProfessor);
 				switch(retorno){
 					case LISTA_CHEIA: 
-						system("cls");
+						system("cls||clear");
 						error("Lista de professores Cheia"); break;
 					case ERRO_CADASTRO_SEXO: 
-						system("cls");
+						system("cls||clear");
 						error("Sexo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
-						system("cls");
+						system("cls||clear");
 						error("Data invalida"); break;
 					case ERRO_CPF_INVALIDO: 
-						system("cls");
+						system("cls||clear");
 						error("Cpf invalido"); break;
 					case SUCESSO_CADASTRO: sucess("Professor cadastrado com sucesso!"); qtdProfessor++; break;
 				}
 				break;
 			}
 			case 2:{
-				system ("cls");
+				system ("cls||clear");
 				listarProfessor(listaProfessor, qtdProfessor);
 				break;
 			}
 			case 3:{
-				system ("cls");
+				system ("cls||clear");
 				int retorno = excluirProfessor(listaProfessor, qtdProfessor);
 				switch(retorno){
 					case ERRO_MATRICULA: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula Invalida"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula Inexistente"); break;
 					case SUCESSO_EXCLUSAO: sucess("Professor excluido com sucesso!"); qtdProfessor--; break;
 				}
 			break; 
 			}
 			case 4:{
-				system ("cls");
+				system ("cls||clear");
 				int retorno = atualizarProfessor(listaProfessor, qtdProfessor);
 				switch(retorno){
 					case ERRO_CADASTRO_SEXO: 
-						system("cls");
+						system("cls||clear");
 						error("Sexo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
-						system("cls");
+						system("cls||clear");
 						error("Data invalida"); break;
 					case ERRO_CPF_INVALIDO: 
-						system("cls");
+						system("cls||clear");
 						error("Cpf invalido"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula Inexistente"); break;
 					case SUCESSO_CADASTRO: sucess("Professor atualizado com sucesso!");break;
 				}
@@ -110,7 +110,7 @@ int mainProfessor(Pessoa listaProfessor[], int qtdProfessor) {
 }
 
 int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
-	system ("cls");
+	system ("cls||clear");
     printLine('-',30);
     printf("Cadastrando professor\n");
     printLine('-',30);
@@ -165,7 +165,7 @@ int cadastrarProfessor(Pessoa lista[], int qtdProfessor){
 
 void listarProfessor(Pessoa lista[], int qtdProfessor){
 	char esc;
-    system ("cls");
+    system ("cls||clear");
 	printf("\n");
 	if(qtdProfessor==0){
     	printLine('-',30);
@@ -183,12 +183,12 @@ void listarProfessor(Pessoa lista[], int qtdProfessor){
 		printf("Pressione ENTER para voltar para o menu: ");
 		getchar();
 		scanf("%c", &esc);
-		system("cls");  
+		system("cls||clear");  
 }
 
 
 int excluirProfessor(Pessoa lista[], int qtdProfessor){
-    system ("cls");
+    system ("cls||clear");
 	int matricula, achou = 0;
  
 	printf("Digite a matricula do professor a ser excluido:");
@@ -209,7 +209,7 @@ int excluirProfessor(Pessoa lista[], int qtdProfessor){
 } 
 
 int atualizarProfessor(Pessoa lista[], int qtdProfessor){
-    system ("cls");
+    system ("cls||clear");
 	int matricula, achou = 0;
 
 	printf("Digite a matricula do professor a ser atualizado: ");

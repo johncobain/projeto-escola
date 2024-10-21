@@ -43,50 +43,50 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 	while(1){		
 		switch(menuDisciplina()){
 			case 0: {
-				system ("cls");
+				system ("cls||clear");
 				return qtdDisciplina;
 				break;
 			}
 			case 1:{
-				system ("cls");
+				system ("cls||clear");
 				int retorno = cadastrarDisciplina(listaDisciplina, listaProfessor, qtdDisciplina, 0);
 				switch(retorno){
 					case LISTA_CHEIA: 
-						system("cls");
+						system("cls||clear");
 						error("Lista de disciplinas Cheia"); break;
 					case ERRO_MATRICULA: 
-						system("cls");
+						system("cls||clear");
 						error("Codigo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
-						system("cls");
+						system("cls||clear");
 						error("Semestre invalido"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Professor nao encontrado"); break;
 					case MAX_DISC_CAD: 
-						system("cls");
+						system("cls||clear");
 						error("Professor atingiu o Maximo de Disciplinas"); break;
 					case NUM_INVALIDO: 
-						system("cls");
+						system("cls||clear");
 						error("Numero de vagas invalido"); break;
 					case SUCESSO_CADASTRO: sucess("Disciplina cadastrada com sucesso!"); qtdDisciplina++; break;
 				}
 				break;
 			}
 			case 2:{
-				system ("cls");
+				system ("cls||clear");
 				listarDisciplina(listaDisciplina, qtdDisciplina);
 				break;
 			}
 			case 3:{
-				system ("cls");
+				system ("cls||clear");
 				int retorno = listarUmaDisciplina(listaDisciplina, qtdDisciplina);
 				switch(retorno){
 					case ERRO_MATRICULA: 
-						system("cls");
+						system("cls||clear");
 						error("Codigo Invalidos"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Codigo Inexistentes"); break;
 					case SUCESSO_CONSULTA:break;
 				}
@@ -96,16 +96,16 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 				int retorno = inserirAluno(listaDisciplina, listaAluno, qtdDisciplina);
 				switch(retorno){
 					case ERRO_MATRICULA: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula ou Codigo Invalidos"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula ou Codigo Inexistentes"); break;
 					case LISTA_CHEIA: 
-						system("cls");
+						system("cls||clear");
 						error("Lista da Disciplina cheia"); break;
 					case MAX_DISC_CAD: 
-						system("cls");
+						system("cls||clear");
 						error("Aluno atingiu o Maximo de Disciplinas"); break;
 					case SUCESSO_CADASTRO: sucess("Aluno cadastrado na Disciplina com sucesso!");break;
 				}
@@ -115,27 +115,27 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 				int retorno = excluirAlunoDisciplina(listaDisciplina, listaAluno, qtdDisciplina);
 				switch(retorno){
 					case ERRO_MATRICULA: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula ou Codigo Invalidos"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Matricula ou Codigo Inexistentes"); break;
 					case LISTA_VAZIA: 
-						system("cls");
+						system("cls||clear");
 						error("Lista da Disciplina vazia"); break;
 					case SUCESSO_EXCLUSAO: sucess("Aluno excluido na Disciplina com sucesso!");break;
 				}
 				break;
 			}
 			case 6:{
-				system ("cls");
+				system ("cls||clear");
 				int retorno = excluirDisciplina(listaDisciplina, qtdDisciplina);
 				switch(retorno){
 					case ERRO_MATRICULA: 
-						system("cls");
+						system("cls||clear");
 						error("Codigo Invalido"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Codigo Inexistente"); break;
 					case SUCESSO_EXCLUSAO: sucess("Disciplina excluida com sucesso!"); qtdDisciplina--; break;
 				}
@@ -145,16 +145,16 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 			int retorno = atualizarDisciplina(listaDisciplina, listaProfessor, qtdDisciplina);
 			switch(retorno){
 					case ERRO_MATRICULA: 
-						system("cls");
+						system("cls||clear");
 						error("Codigo invalido"); break;
 					case ERRO_DATA_INVALIDA: 
-						system("cls");
+						system("cls||clear");
 						error("Semestre invalido"); break;
 					case NAO_ENCONTRADO: 
-						system("cls");
+						system("cls||clear");
 						error("Professor nao encontrado"); break;
 					case NUM_INVALIDO: 
-						system("cls");
+						system("cls||clear");
 						error("Numero de vagas invalido"); break;
 					case SUCESSO_CADASTRO: sucess("Disciplina atualizado com sucesso!"); break;
 				}
@@ -166,7 +166,7 @@ int mainDisciplina(Disciplina listaDisciplina[], Pessoa listaProfessor[], Pessoa
 }
 
 int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisciplina, int atualizacao){
-	system ("cls");
+	system ("cls||clear");
 	printLine('-',30);
 	printf("Cadastrando Disciplina\n");
 	printLine('-',30);
@@ -226,7 +226,7 @@ int cadastrarDisciplina(Disciplina lista[], Pessoa listaProfessor[], int qtdDisc
 
 void listarDisciplina(Disciplina lista[], int qtdDisciplina){
 	char esc;
-    system ("cls");
+    system ("cls||clear");
 	printf("\n");
 	if(qtdDisciplina==0){
     	printLine('-',30);
@@ -248,11 +248,11 @@ void listarDisciplina(Disciplina lista[], int qtdDisciplina){
 	printf("Pressione ENTER para voltar para o menu: ");
 	getchar();
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
 }
 
 int listarUmaDisciplina(Disciplina lista[], int qtdDisciplina){
-	system ("cls");
+	system ("cls||clear");
 	int esc;
 	char codigo[7];
 	int achou = 0;
@@ -283,13 +283,13 @@ int listarUmaDisciplina(Disciplina lista[], int qtdDisciplina){
   	}
 	printf("Pressione ENTER para voltar para o menu: ");
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
   	if (achou) return SUCESSO_CONSULTA;
 	return NAO_ENCONTRADO;
 }
 
 int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
-	system ("cls");
+	system ("cls||clear");
 	int matricula;
 	char codigo[7];
 	int achou;
@@ -329,7 +329,7 @@ int inserirAluno(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
 }
 
 int excluirAlunoDisciplina(Disciplina lista[], Pessoa aluno[], int qtdDisciplina){
-	system ("cls");
+	system ("cls||clear");
 	char codigo[7];
 	int matricula;
 	int achou;
@@ -376,7 +376,7 @@ int excluirAlunoDisciplina(Disciplina lista[], Pessoa aluno[], int qtdDisciplina
 }
 
 int excluirDisciplina(Disciplina lista[], int qtdDisciplina){
-    system ("cls");
+    system ("cls||clear");
 	char codigo[7];
 	int achou = 0;
 	fflush(stdin);
@@ -402,7 +402,7 @@ int excluirDisciplina(Disciplina lista[], int qtdDisciplina){
 }
 
 int atualizarDisciplina(Disciplina lista[],Pessoa listaProfessor[], int qtdDisciplina) {
-  	system ("cls");
+  	system ("cls||clear");
 	char codigo[7];
 	fflush(stdin);
 	printf("Digite o codigo da Disciplina a ser atualizada: ");

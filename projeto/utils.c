@@ -17,8 +17,8 @@ void printLine(char s, int tam){
   }
   printf("\n");
 }
-void error(char *str){system("cls"); printf("\033[1;101m%s\033[0m", str);}
-void sucess(char *str){system("cls"); printf("\033[1;102m%s\033[0m", str);}
+void error(char *str){system("cls||clear"); printf("\033[1;101m%s\033[0m", str);}
+void sucess(char *str){system("cls||clear"); printf("\033[1;102m%s\033[0m", str);}
 
 // ===== Validação ===================================================
 

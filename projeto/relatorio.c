@@ -31,32 +31,32 @@ int mainRelatorio(Disciplina listaDisciplina[], int qtdDisciplina, Pessoa listaP
     while(1){		
 		switch(menuRelatorio()){
 			case 0: {
-				system ("cls");
+				system ("cls||clear");
 				return 0;
 				break;
 			}
 			case 1:{
-				system ("cls");
+				system ("cls||clear");
 				relPessoas(listaAluno, qtdAluno, 1);
 				break;
 			}
 			case 2:{
-				system ("cls");
+				system ("cls||clear");
 				relPessoas(listaProfessor, qtdProfessor, 0);
 				break;
 			}
 			case 3:{
-				system ("cls");
+				system ("cls||clear");
 				aniversariantes(listaAluno, listaProfessor, qtdAluno, qtdProfessor);
 				break;
 			}
 			case 4:{
-				system("cls");
+				system("cls||clear");
 				buscarP(listaAluno, listaProfessor, qtdAluno, qtdProfessor);
 				break;
 			}
 			case 5:{
-				system("cls");
+				system("cls||clear");
 				discMinVagas(listaDisciplina,qtdDisciplina);
 				break;
 			}
@@ -69,32 +69,32 @@ int relPessoas(Pessoa lista[], int qtdPessoa, int eh_aluno){
     while(1){		
 		switch(menuRelPessoas(eh_aluno)){
 			case 0: {
-				system ("cls");
+				system ("cls||clear");
 				return 0;
 				break;
 			}
 			case 1:{
-				system ("cls");
+				system ("cls||clear");
 				eh_aluno?listarAlunos(lista, qtdPessoa):listarProfessor(lista, qtdPessoa);
 				break;
 			}
 			case 2:{
-				system ("cls");
+				system ("cls||clear");
 				listarPSexo(lista, qtdPessoa, eh_aluno);
 				break;
 			}
 			case 3:{
-				system ("cls");
+				system ("cls||clear");
 				listarAlfa(lista, qtdPessoa, eh_aluno);
 				break;
 			}
 			case 4:{
-				system ("cls");
+				system ("cls||clear");
 				listarNascimento(lista, qtdPessoa, eh_aluno);
 				break;
 			}
 			case 5:{
-				system("cls");
+				system("cls||clear");
 				listarPDisciplina(lista, qtdPessoa, eh_aluno);
 				break;
 			}
@@ -162,7 +162,7 @@ void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
 }
 
 int trocar_pessoas(Pessoa *a, Pessoa *b) {
@@ -198,7 +198,7 @@ void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
 }
 
 void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno){
@@ -229,7 +229,7 @@ void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
 }
 
 void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
@@ -238,7 +238,7 @@ void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	
 	printf("Digite a quantidade maxima de Disciplinas: ");
 	scanf("%d", &disc);
-	system("cls");
+	system("cls||clear");
 	if(disc>0){
 		printf("\n");
 		printLine('-',60);
@@ -253,7 +253,7 @@ void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
 		printf("Pressione ENTER para voltar para o menu: ");
 		fflush(stdin);
 		scanf("%c", &esc);
-		system("cls");
+		system("cls||clear");
 	}else{
 		error("Numero Invalido");
 	}
@@ -268,7 +268,7 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 	printf("Digite o mes: ");
 	scanf("%d", &mes);
 	fflush(stdin);
-	system("cls");
+	system("cls||clear");
 	printf("\n");
 	printLine('-',60);
 	printf("#### Aniversariantes do Mes %d ####\n", mes);
@@ -306,7 +306,7 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
 }
 
 int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
@@ -349,7 +349,7 @@ int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
 }
 
 void discMinVagas(Disciplina disciplina[],int qtdDisciplina){
@@ -358,7 +358,7 @@ void discMinVagas(Disciplina disciplina[],int qtdDisciplina){
 	printf("Digite a quantidade minima de Vagas: ");
 	scanf("%d", &minVagas);
 	fflush(stdin);
-	system("cls");
+	system("cls||clear");
 	printf("\n");
 	printLine('-',50);
 	printf("#### Disciplinas com no minimo %d vagas ####\n", minVagas);
@@ -376,5 +376,5 @@ void discMinVagas(Disciplina disciplina[],int qtdDisciplina){
 	printf("Pressione ENTER para voltar para o menu: ");
 	fflush(stdin);
 	scanf("%c", &esc);
-	system("cls");
+	system("cls||clear");
 }

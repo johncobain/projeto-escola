@@ -31,7 +31,7 @@ int menuGeral(){
 
 // primeiramente eu tenho que entender o que foi que eu escrevi aqui
 int main() {
-	system ("cls");
+	system ("cls||clear");
 	Pessoa listaAluno[TAM_P];/*Criando a variável aluno que será do tipo struct Ficha_Aluno */
 	int qtdAluno = 0;// inicio da lista de alunos
 	
@@ -46,7 +46,7 @@ int main() {
 		switch(menuGeral()){
 			case 0: {
 				int esc;
-				system ("cls");
+				system ("cls||clear");
 				printf("\n");
 				printLine('-',30);
 				printf("Finalizando Escola\n");
@@ -61,27 +61,27 @@ int main() {
 				break;
 			}		
 			case 1:{
-				system ("cls");
+				system ("cls||clear");
 				qtdAluno = mainAluno(listaAluno, qtdAluno);
 				break;
 			}
 			case 2:{
-				system ("cls");
+				system ("cls||clear");
 				qtdProfessor = mainProfessor(listaProfessor, qtdProfessor);
 				break;
 			}
 			case 3:{
-				system ("cls");
+				system ("cls||clear");
 				qtdDisciplina = mainDisciplina(listaDisciplina, listaProfessor, listaAluno, qtdDisciplina);
 				break;
 			}
 			case 4:{
-				system ("cls");
+				system ("cls||clear");
 				mainRelatorio(listaDisciplina, qtdDisciplina, listaProfessor, qtdProfessor, listaAluno, qtdAluno);
 				break;
 			}
 			case 5:{
-				system ("cls");
+				system ("cls||clear");
 				getTeste(listaAluno, &qtdAluno, listaProfessor, &qtdProfessor, listaDisciplina, &qtdDisciplina);
 				// qtdAluno = 4;
 				// qtdProfessor = 5;
