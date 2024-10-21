@@ -159,8 +159,8 @@ void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
 		}
 	}
 	printLine('-',60);
+	getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
-	fflush(stdin);
 	scanf("%c", &esc);
 	system("cls||clear");
 }
@@ -195,8 +195,8 @@ void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
         listarUmaP(listaOrdenada, i);
 		printLine('-', 60);
     }
+	getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
-	fflush(stdin);
 	scanf("%c", &esc);
 	system("cls||clear");
 }
@@ -226,8 +226,8 @@ void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno){
         listarUmaP(listaOrdenada, i);
 		printLine('-', 60);
     }
+	getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
-	fflush(stdin);
 	scanf("%c", &esc);
 	system("cls||clear");
 }
@@ -250,8 +250,8 @@ void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
 				printLine('-', 60);
 			}
 		}
+		getchar();
 		printf("Pressione ENTER para voltar para o menu: ");
-		fflush(stdin);
 		scanf("%c", &esc);
 		system("cls||clear");
 	}else{
@@ -303,8 +303,8 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 			printLine('-', 60);
 		}
 	}
+	getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
-	fflush(stdin);
 	scanf("%c", &esc);
 	system("cls||clear");
 }
@@ -346,8 +346,8 @@ int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
 			printLine('-', 60);
         }
     }
+	getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
-	fflush(stdin);
 	scanf("%c", &esc);
 	system("cls||clear");
 }
@@ -373,8 +373,8 @@ void discMinVagas(Disciplina disciplina[],int qtdDisciplina){
 			printLine('-',50);
 		}
 	}
+	getchar();
 	printf("Pressione ENTER para voltar para o menu: ");
-	fflush(stdin);
 	scanf("%c", &esc);
 	system("cls||clear");
 }
