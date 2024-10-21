@@ -23,7 +23,7 @@ void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno);
 void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno);
 
 void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor);
-void buscarP(Pessoa aluno[], Pessoa Professor[], int qtdAluno, int qtdProfessor);
+int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor);
 void discMinVagas(Disciplina disciplina[],int qtdDisciplina);
  
 
@@ -309,8 +309,47 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 	system("cls");
 }
 
-void buscarP(Pessoa aluno[], Pessoa Professor[], int qtdAluno, int qtdProfessor){
-
+int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
+	int esc;
+	char busca[50];
+    char nome_lower[50];
+	int minBusca = 3;
+    printf("Digite uma string de busca (mínimo %d caracteres): ", minBusca);
+	fflush(stdin);
+	fgets(busca, 50, stdin);
+	fflush(stdin);
+	busca[strcspn(busca, "\n")] = '\0'; 
+	if (strlen(busca) < minBusca) {
+		error("Tamanho minimo nao alcancado");
+		return 0;
+	}
+    to_lower(busca);
+	printLine('-', 60);
+	printf("Alunos com a string \"%s\"\n", busca);
+	printLine('-', 60);
+    for (int i = 0; i < qtdAluno; i++) {
+        strcpy(nome_lower, aluno[i].nome);
+        to_lower(nome_lower);
+        if (strstr(nome_lower, busca) != NULL) {
+            listarUmaP(aluno, i);
+			printLine('-', 60);
+        }
+    }
+	printLine('-', 60);
+	printf("Professor com a string \"%s\"\n", busca);
+	printLine('-', 60);
+    for (int i = 0; i < qtdProfessor; i++) {
+        strcpy(nome_lower, professor[i].nome);
+        to_lower(nome_lower);
+        if (strstr(nome_lower, busca) != NULL) {
+            listarUmaP(professor, i);
+			printLine('-', 60);
+        }
+    }
+	printf("Pressione ENTER para voltar para o menu: ");
+	fflush(stdin);
+	scanf("%c", &esc);
+	system("cls");
 }
 
 void discMinVagas(Disciplina disciplina[],int qtdDisciplina){

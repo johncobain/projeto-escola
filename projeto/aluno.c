@@ -136,17 +136,17 @@ int cadastrarAluno(Pessoa lista[], int qtdAluno){
 
 	int dia, mes, ano;
 	printf("Digite o dia de nascimento (dd): ");
-	scanf("%d", &dia);
+	scanf(" %d", &dia);
 	printf("Digite o mes de nascimento (mm): ");
-	scanf("%d", &mes);
+	scanf(" %d", &mes);
 	printf("Digite o ano de nascimento (aaaa): ");
-	scanf("%d", &ano);
-	fflush(stdin);
+	scanf(" %d", &ano);
 	if(validarData(dia,mes, ano)){
 		lista[qtdAluno].data_nascimento.dia = dia;
 		lista[qtdAluno].data_nascimento.mes = mes;
 		lista[qtdAluno].data_nascimento.ano = ano;
 	}else return ERRO_DATA_INVALIDA;
+	fflush(stdin);
 
 
 	printf("Digite o CPF(apenas numeros): ");
