@@ -315,7 +315,7 @@ int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
     char nome_lower[50];
 	int minBusca = 3;
 	getchar();
-    printf("Digite uma string de busca (mínimo %d caracteres): ", minBusca);
+    printf("Digite uma string de busca (minimo %d caracteres): ", minBusca);
 	fgets(busca, 50, stdin);
 	fflush(stdin);
 	busca[strcspn(busca, "\n")] = '\0'; 
