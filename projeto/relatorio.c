@@ -138,7 +138,7 @@ int menuRelPessoas(int eh_aluno){
 }
 
 void listarPSexo(Pessoa lista[], int qtdPessoa, int eh_aluno){
-	int esc;
+	char esc;
 	printf("\n");
 	printLine('-',60);
 	eh_aluno?printf("#### Alunos do Sexo Masculino ####\n"):printf("#### Professores do Sexo Masculino ####\n");
@@ -172,7 +172,7 @@ int trocar_pessoas(Pessoa *a, Pessoa *b) {
 }
 
 void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
-	int esc;
+	char esc;
 	Pessoa listaOrdenada[TAM_P];
 	for (int i = 0; i < qtdPessoa; i++) {
         listaOrdenada[i] = lista[i];
@@ -202,7 +202,7 @@ void listarAlfa(Pessoa lista[], int qtdPessoa, int eh_aluno){
 }
 
 void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno){
-	int esc;
+	char esc;
 	Pessoa listaOrdenada[TAM_P];
 	for (int i = 0; i < qtdPessoa; i++) {
         listaOrdenada[i] = lista[i];
@@ -234,7 +234,7 @@ void listarNascimento(Pessoa lista[], int qtdPessoa, int eh_aluno){
 
 void listarPDisciplina(Pessoa lista[], int qtdPessoa, int eh_aluno){
 	int disc;
-	int esc;
+	char esc;
 	
 	printf("Digite a quantidade maxima de Disciplinas: ");
 	scanf("%d", &disc);
@@ -263,7 +263,7 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 	time_t t = time(NULL);
     struct tm tm = *localtime(&t);
 
-	int esc;
+	char esc;
 	int mes;
 	printf("Digite o mes: ");
 	scanf("%d", &mes);
@@ -310,7 +310,7 @@ void aniversariantes(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdPr
 }
 
 int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
-	int esc;
+	char esc;
 	char busca[50];
     char nome_lower[50];
 	int minBusca = 3;
@@ -353,7 +353,7 @@ int buscarP(Pessoa aluno[], Pessoa professor[], int qtdAluno, int qtdProfessor){
 }
 
 void discMinVagas(Disciplina disciplina[],int qtdDisciplina){
-	int esc;
+	char esc;
 	int minVagas;
 	printf("Digite a quantidade minima de Vagas: ");
 	scanf("%d", &minVagas);

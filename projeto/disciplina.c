@@ -253,7 +253,7 @@ void listarDisciplina(Disciplina lista[], int qtdDisciplina){
 
 int listarUmaDisciplina(Disciplina lista[], int qtdDisciplina){
 	system ("cls||clear");
-	int esc;
+	char esc;
 	char codigo[7];
 	int achou = 0;
 	getchar();

@@ -48,7 +48,7 @@ int main() {
 	while(1){
 		switch(menuGeral()){
 			case 0: {
-				int esc;
+				char esc;
 				system ("cls||clear");
 				printf("\n");
 				printLine('-',30);
