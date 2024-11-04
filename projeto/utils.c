@@ -49,9 +49,9 @@ int validarData(int d, int m, int a){
         return 0;
     if (d == 31 && diasNoMes(m,a)!=31)
         return 0;
-    if (diasNoMes(m,a)==2 && d>29)
+    if (m==2 && d>29)
         return 0;
-    if (diasNoMes(m,a)==2 && d == 29 && bissexto(a) == 0)
+    if (m==2 && d == 29 && bissexto(a) == 0)
         return 0;
     if (getDias(d,m,a)<0)
         return 0;
